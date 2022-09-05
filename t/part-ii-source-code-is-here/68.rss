@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Part II: Source code is here</title>
+    <link>https://discourse.keleshev.com/t/part-ii-source-code-is-here/68</link>
+    <description>I&#39;m still working on Part II of the book but wanted to share some of the source code from Part II which is now available in branch `part-2` of the book code repository:
+
+https://github.com/keleshev/compiling-to-assembly-from-scratch/tree/part-2
+
+Some of the new things (that will be discussed in Part II) are:
+* Primitive types like boolean,
+* Arrays and heap allocation,
+* Visitors (code generation is converted to a visitor),
+* Type checking (also implemented as a visitor).
+
+Also, source code is now split into modules, but this won&#39;t be covered in the book.
+
+Let me know what you think! My goal is still to finalize the book before the end of this month.</description>
+    
+    <lastBuildDate>Sun, 06 Sep 2020 17:52:22 +0000</lastBuildDate>
+    <category>Uncategorized</category>
+    <atom:link href="https://discourse.keleshev.com/t/part-ii-source-code-is-here/68.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Part II: Source code is here</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m still working on Part II of the book but wanted to share some of the source code from Part II which is now available in branch <code>part-2</code> of the book code repository:</p>
+<aside class="onebox whitelistedgeneric">
+  <header class="source">
+      <img src="https://github.githubassets.com/favicons/favicon.svg" class="site-icon" width="32" height="32">
+      <a href="https://github.com/keleshev/compiling-to-assembly-from-scratch/tree/part-2" target="_blank">GitHub</a>
+  </header>
+  <article class="onebox-body">
+    <img src="https://discourse.keleshev.com/uploads/default/original/1X/07193aa55d468b792f4c91db7322ad4a9582bf90.jpeg" class="thumbnail onebox-avatar" width="400" height="400">
+
+<h3><a href="https://github.com/keleshev/compiling-to-assembly-from-scratch/tree/part-2" target="_blank">keleshev/compiling-to-assembly-from-scratch</a></h3>
+
+<p>Source code for the book Compiling to Assembly from Scratch https://keleshev.com/compiling-to-assembly-from-scratch-the-book - keleshev/compiling-to-assembly-from-scratch</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>Some of the new things (that will be discussed in Part II) are:</p>
+<ul>
+<li>Primitive types like boolean,</li>
+<li>Arrays and heap allocation,</li>
+<li>Visitors (code generation is converted to a visitor),</li>
+<li>Type checking (also implemented as a visitor).</li>
+</ul>
+<p>Also, source code is now split into modules, but this won’t be covered in the book.</p>
+<p>Let me know what you think! My goal is still to finalize the book before the end of this month.</p>
+          <p><a href="https://discourse.keleshev.com/t/part-ii-source-code-is-here/68/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/part-ii-source-code-is-here/68/1</link>
+        <pubDate>Sun, 06 Sep 2020 17:52:22 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-68-1</guid>
+        <source url="https://discourse.keleshev.com/t/part-ii-source-code-is-here/68.rss">Part II: Source code is here</source>
+      </item>
+  </channel>
+</rss>

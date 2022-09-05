@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Compiling to Assembly from Scratch forum is *discontinued*</title>
+    <link>https://discourse.keleshev.com/t/compiling-to-assembly-from-scratch-forum-is-discontinued/7</link>
+    <description>Thank you those who participated and provided valuable feedback and discussion!
+
+This forum did not see much use past the few months after the book launch, and hosting it requires non-negligible resources. That&#39;s why I&#39;m closing this forum, but keeping a scraped static version for posterity.
+
+In case you are looking for a place to discuss your compiler, programming language, or the book, I suggest the following Reddit communities:
+
+* https://www.reddit.com/r/Compilers/
+* https://www.reddit.com/r/ProgrammingLanguages/
+
+You can also contact me on Twitter [@keleshev](https://twitter.com/keleshev) and by email [vladimir@keleshev.com](mailto:vladimir@keleshev.com).
+
+—Vladimir</description>
+    
+    <lastBuildDate>Mon, 05 Sep 2022 19:53:01 +0000</lastBuildDate>
+    <category>Uncategorized</category>
+    <atom:link href="https://discourse.keleshev.com/t/compiling-to-assembly-from-scratch-forum-is-discontinued/7.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Compiling to Assembly from Scratch forum is *discontinued*</title>
+        <dc:creator><![CDATA[system]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank you those who participated and provided valuable feedback and discussion!</p>
+<p>This forum did not see much use past the few months after the book launch, and hosting it requires non-negligible resources. That’s why I’m closing this forum, but keeping a scraped static version for posterity.</p>
+<p>In case you are looking for a place to discuss your compiler, programming language, or the book, I suggest the following Reddit communities:</p>
+<ul>
+<li><a href="https://www.reddit.com/r/Compilers/">https://www.reddit.com/r/Compilers/</a></li>
+<li><a href="https://www.reddit.com/r/ProgrammingLanguages/">https://www.reddit.com/r/ProgrammingLanguages/</a></li>
+</ul>
+<p>You can also contact me on Twitter <a href="https://twitter.com/keleshev">@keleshev</a> and by email <a href="mailto:vladimir@keleshev.com">vladimir@keleshev.com</a>.</p>
+<p>—Vladimir</p>
+          <p><a href="https://discourse.keleshev.com/t/compiling-to-assembly-from-scratch-forum-is-discontinued/7/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/compiling-to-assembly-from-scratch-forum-is-discontinued/7/1</link>
+        <pubDate>Wed, 24 Jun 2020 18:02:05 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-7-1</guid>
+        <source url="https://discourse.keleshev.com/t/compiling-to-assembly-from-scratch-forum-is-discontinued/7.rss">Compiling to Assembly from Scratch forum is *discontinued*</source>
+      </item>
+  </channel>
+</rss>

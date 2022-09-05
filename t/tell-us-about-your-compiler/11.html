@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Tell us about your compiler! - Compiling to Assembly from Scratch</title>
+    <meta name="description" content="Which language you are using to write it, and which language does it compile? What are your struggles? What are your successes?">
+    <meta name="generator" content="Discourse 2.6.0.beta1 - https://github.com/discourse/discourse version b9174c8e8ab7e0a5fdb782cd8625d26475ce777e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/32d34deafc2d620b3f4b218b560d5d5f544183dd_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/1X/32d34deafc2d620b3f4b218b560d5d5f544183dd_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="11.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://discourse.keleshev.com","potentialAction":{"@type":"SearchAction","target":"https://discourse.keleshev.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Compiling to Assembly from Scratch Search">
+
+      <link href="../../stylesheets/desktop_2858fe1a7e1c2fdbfeb3eae8f9a8f12e081caaf6.css%3F__ws=discourse.keleshev.com.css" media="all" rel="stylesheet" data-target="desktop" data-theme-id="2"/>
+      <link href="../../stylesheets/desktop_theme_2_223f7359fb9f6a7678616c181dc93a609ee33714.css%3F__ws=discourse.keleshev.com.css" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2"/>
+    
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Tell us about your compiler!&#39;" href="11.rss" />
+    <meta property="og:site_name" content="Compiling to Assembly from Scratch" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://discourse.keleshev.com/uploads/default/original/1X/32d34deafc2d620b3f4b218b560d5d5f544183dd.png" />
+<meta property="og:image" content="https://discourse.keleshev.com/uploads/default/original/1X/32d34deafc2d620b3f4b218b560d5d5f544183dd.png" />
+<meta property="og:url" content="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11" />
+<meta name="twitter:url" content="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11" />
+<meta property="og:title" content="Tell us about your compiler!" />
+<meta name="twitter:title" content="Tell us about your compiler!" />
+<meta property="og:description" content="Which language you are using to write it, and which language does it compile? What are your struggles? What are your successes?" />
+<meta name="twitter:description" content="Which language you are using to write it, and which language does it compile? What are your struggles? What are your successes?" />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="3 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="23 ❤" />
+<meta property="article:published_time" content="2020-06-24T19:11:43+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="next" href="11%3Fpage=2.html">
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/1X/7ed43fb87ad00ed48afdea6909c7967841dd7158.jpeg" alt="Compiling to Assembly from Scratch" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="11.html">Tell us about your compiler!</a>
+    </h1>
+
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Compiling to Assembly from Scratch'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://discourse.keleshev.com/uploads/default/original/1X/7ed43fb87ad00ed48afdea6909c7967841dd7158.jpeg'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://discourse.keleshev.com/u/keleshev'><span itemprop='name'>keleshev</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-06-24T19:11:43Z' class='post-time'>
+                June 24, 2020,  7:11pm
+              </time>
+              <meta itemprop='dateModified' content='2020-06-24T19:11:43Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Which language you are using to write it, and which language does it compile? What are your struggles? What are your successes?</p>
+        </div>
+
+        <meta itemprop='headline' content='Tell us about your compiler!'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Compiling to Assembly from Scratch'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://discourse.keleshev.com/uploads/default/original/1X/7ed43fb87ad00ed48afdea6909c7967841dd7158.jpeg'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://discourse.keleshev.com/u/Apos'><span itemprop='name'>Apos</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-12T07:16:37Z' class='post-time'>
+                July 12, 2020,  7:16am
+              </time>
+              <meta itemprop='dateModified' content='2020-07-12T07:16:37Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m planning on compiling this: <a href="https://github.com/Apostolique/Vyne-Language" rel="nofollow noopener">https://github.com/Apostolique/Vyne-Language</a>. I’ll develop the language more as I go through the book. My original plan was to use C#, but maybe you’ll convince me to try TypeScript.</p>
+<p>I’ve been meaning to work on the compiler for a while, but it’s hard to balance all my projects.</p>
+<p>No successes yet, but the draft was interesting. I never considered ARM as a possible compilation target so this should be interesting.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tell us about your compiler!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Compiling to Assembly from Scratch'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://discourse.keleshev.com/uploads/default/original/1X/7ed43fb87ad00ed48afdea6909c7967841dd7158.jpeg'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://discourse.keleshev.com/u/keleshev'><span itemprop='name'>keleshev</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-12T07:37:10Z' class='post-time'>
+                July 12, 2020,  7:37am
+              </time>
+              <meta itemprop='dateModified' content='2020-07-12T07:37:10Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a class="mention" href="https://discourse.keleshev.com/u/apos">@Apos</a> Vyne looks interesting! I would recommend to use whatever language you’re most comfortable in. It’s challenging enough to write a compiler, and making one in a new language is even harder. The kind of TypeScript that is in the book should match well to C#.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tell us about your compiler!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Compiling to Assembly from Scratch'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://discourse.keleshev.com/uploads/default/original/1X/7ed43fb87ad00ed48afdea6909c7967841dd7158.jpeg'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://discourse.keleshev.com/u/stn'><span itemprop='name'>stn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-13T09:06:31Z' class='post-time'>
+                July 13, 2020,  9:06am
+              </time>
+              <meta itemprop='dateModified' content='2020-07-13T09:06:31Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m planning on using Golang which is a large part of my day job. I’m comfortable with it and the level of pedantry it requires seems just about right. I also use Python a lot, but I feel its dynamic nature will hinder me more than it will help.</p>
+<p>To me the target language is not interesting (yet). I’m just looking forward to grasping the concepts and making the simplest thing that could possibly work.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tell us about your compiler!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Compiling to Assembly from Scratch'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://discourse.keleshev.com/uploads/default/original/1X/7ed43fb87ad00ed48afdea6909c7967841dd7158.jpeg'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://discourse.keleshev.com/u/keleshev'><span itemprop='name'>keleshev</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-13T09:59:42Z' class='post-time'>
+                July 13, 2020,  9:59am
+              </time>
+              <meta itemprop='dateModified' content='2020-07-13T09:59:42Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a class="mention" href="https://discourse.keleshev.com/u/stn">@stn</a> I don’t have a lot of experience with Go, but I think that code in the book should map well to Go. I haven’t used class inheritance (only interface inheritance) exactly for this reason: so that code is portable to languages like Go. Let us know how it goes!</p>
+        </div>
+
+        <meta itemprop='headline' content='Tell us about your compiler!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Compiling to Assembly from Scratch'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://discourse.keleshev.com/uploads/default/original/1X/7ed43fb87ad00ed48afdea6909c7967841dd7158.jpeg'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://discourse.keleshev.com/u/stn'><span itemprop='name'>stn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-13T10:17:06Z' class='post-time'>
+                July 13, 2020, 10:17am
+              </time>
+              <meta itemprop='dateModified' content='2020-07-13T10:17:06Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a class="mention" href="https://discourse.keleshev.com/u/keleshev">@keleshev</a> I will. Looking forward to the rest of the content. Have fun and good luck.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tell us about your compiler!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Compiling to Assembly from Scratch'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://discourse.keleshev.com/uploads/default/original/1X/7ed43fb87ad00ed48afdea6909c7967841dd7158.jpeg'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://discourse.keleshev.com/u/Apos'><span itemprop='name'>Apos</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-24T03:05:37Z' class='post-time'>
+                July 24, 2020,  3:05am
+              </time>
+              <meta itemprop='dateModified' content='2020-07-24T03:05:37Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>My compiler’s repo will be here: <a href="https://github.com/Apostolique/Vyne-Compiler" rel="nofollow noopener">https://github.com/Apostolique/Vyne-Compiler</a>.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tell us about your compiler!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Compiling to Assembly from Scratch'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://discourse.keleshev.com/uploads/default/original/1X/7ed43fb87ad00ed48afdea6909c7967841dd7158.jpeg'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://discourse.keleshev.com/u/keleshev'><span itemprop='name'>keleshev</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-29T21:34:05Z' class='post-time'>
+                July 29, 2020,  9:34pm
+              </time>
+              <meta itemprop='dateModified' content='2020-07-29T21:34:05Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a class="mention" href="https://discourse.keleshev.com/u/apos">@Apos</a> any blockers so far?</p>
+        </div>
+
+        <meta itemprop='headline' content='Tell us about your compiler!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Compiling to Assembly from Scratch'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://discourse.keleshev.com/uploads/default/original/1X/7ed43fb87ad00ed48afdea6909c7967841dd7158.jpeg'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://discourse.keleshev.com/u/Apos'><span itemprop='name'>Apos</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-30T05:46:48Z' class='post-time'>
+                July 30, 2020,  5:46am
+              </time>
+              <meta itemprop='dateModified' content='2020-07-30T05:46:48Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>It’s mostly going well. I started writing a bit of the parser combinators in C#, but I’m finding the generics to be pretty heavy. For example:</p>
+<aside class="onebox githubblob">
+  <header class="source">
+      <a href="https://github.com/Apostolique/Vyne-Compiler/blob/aef87f7418cfc18015be9bcfb27925c1194a3272/src/Parser.cs#L136" target="_blank" rel="nofollow noopener">github.com</a>
+  </header>
+  <article class="onebox-body">
+    <h4><a href="https://github.com/Apostolique/Vyne-Compiler/blob/aef87f7418cfc18015be9bcfb27925c1194a3272/src/Parser.cs#L136" target="_blank" rel="nofollow noopener">Apostolique/Vyne-Compiler/blob/aef87f7418cfc18015be9bcfb27925c1194a3272/src/Parser.cs#L136</a></h4>
+<pre class="onebox"><code class="lang-cs"><ol class="start lines" start="126" style="counter-reset: li-counter 125 ;">
+<li>public static Parser&lt;string&gt; SEMICOLON = token(@";");</li>
+<li>public static Parser&lt;string&gt; LEFT_PAREN = token(@"[(]");</li>
+<li>public static Parser&lt;string&gt; RIGHT_PAREN = token(@"[)]");</li>
+<li>public static Parser&lt;string&gt; LEFT_BRACE = token(@"[{]");</li>
+<li>public static Parser&lt;string&gt; RIGHT_BRACE = token(@"[}]");</li>
+<li>
+</li><li>public static Parser&lt;Integer&gt; INTEGER = token(@"[0-9]+").Map(digits =&gt; new Integer(Int32.Parse(digits)));</li>
+<li>public static Parser&lt;string&gt; ID = token(@"[a-zA-Z_]");</li>
+<li>public static Parser&lt;Id&gt; id = ID.Map(x =&gt; new Id(x));</li>
+<li>
+</li><li class="selected">public static Parser&lt;Func&lt;AST, Not&gt;&gt; NOT = token(@"!").Map&lt;Func&lt;AST, Not&gt;&gt;(_ =&gt; term =&gt; new Not(term));</li>
+<li>public static Parser&lt;Func&lt;AST, AST, Equal&gt;&gt; EQUAL = token(@"==").Map&lt;Func&lt;AST, AST, Equal&gt;&gt;(_ =&gt; (left, right) =&gt; new Equal(left, right));</li>
+<li>public static Parser&lt;Func&lt;AST, AST, NotEqual&gt;&gt; NOT_EQUAL = token(@"!=").Map&lt;Func&lt;AST, AST, NotEqual&gt;&gt;(_ =&gt; (left, right) =&gt; new NotEqual(left, right));</li>
+<li>public static Parser&lt;Func&lt;AST, AST, Add&gt;&gt; PLUS = token(@"[+]").Map&lt;Func&lt;AST, AST, Add&gt;&gt;(_ =&gt; (left, right) =&gt; new Add(left, right));</li>
+<li>public static Parser&lt;Func&lt;AST, AST, Subtract&gt;&gt; MINUS = token(@"[-]").Map&lt;Func&lt;AST, AST, Subtract&gt;&gt;(_ =&gt; (left, right) =&gt; new Subtract(left, right));</li>
+<li>public static Parser&lt;Func&lt;AST, AST, Multiply&gt;&gt; STAR = token(@"[*]").Map&lt;Func&lt;AST, AST, Multiply&gt;&gt;(_ =&gt; (left, right) =&gt; new Multiply(left, right));</li>
+<li>public static Parser&lt;Func&lt;AST, AST, Divide&gt;&gt; SLASH = token(@"[/]").Map&lt;Func&lt;AST, AST, Divide&gt;&gt;(_ =&gt; (left, right) =&gt; new Divide(left, right));</li>
+<li>
+</li><li>public static Parser&lt;AST&gt; expression = Parser&lt;string&gt;.Error&lt;AST&gt;("expression parser used before definition");</li>
+<li>
+</li><li>public static Parser&lt;List&lt;AST&gt;&gt; args =</li>
+</ol></code></pre>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>And I didn’t get to the interesting stuff yet. Currently looking for ways to simplify that. Also I might have written some of them wrong, I’ll have to test later.</p>
+<p>I tested with TypeScript too, but I’m not sold on it yet. It feels too much like JavaScript which I guess is the point, but I have more fun with JavaScript.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tell us about your compiler!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Compiling to Assembly from Scratch'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://discourse.keleshev.com/uploads/default/original/1X/7ed43fb87ad00ed48afdea6909c7967841dd7158.jpeg'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://discourse.keleshev.com/u/keleshev'><span itemprop='name'>keleshev</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-30T15:48:35Z' class='post-time'>
+                July 30, 2020,  3:48pm
+              </time>
+              <meta itemprop='dateModified' content='2020-07-30T15:48:35Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yeah, these type annotations are heavy. One thing that comes to mind, is to make the token definitions local to a function. This way, you can take advantage of local type inference. You could write:</p>
+<pre><code class="lang-auto">var NOT = token(@"!").Map&lt;Func&lt;AST, Not&gt;&gt;(_ =&gt; term =&gt; new Not(term));
+</code></pre>
+<p>Instead of:</p>
+<pre><code class="lang-auto">public static Parser&lt;Func&lt;AST, Not&gt;&gt; NOT = token(@"!").Map&lt;Func&lt;AST, Not&gt;&gt;(_ =&gt; term =&gt; new Not(term));
+</code></pre>
+<p>But that forces you to have all of the parser defined within a single function, I think.</p>
+<p>I’m not an expert on C#, so maybe anyone has some better idea?</p>
+        </div>
+
+        <meta itemprop='headline' content='Tell us about your compiler!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Compiling to Assembly from Scratch'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://discourse.keleshev.com/uploads/default/original/1X/7ed43fb87ad00ed48afdea6909c7967841dd7158.jpeg'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://discourse.keleshev.com/u/keleshev'><span itemprop='name'>keleshev</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-30T16:10:41Z' class='post-time'>
+                July 30, 2020,  4:10pm
+              </time>
+              <meta itemprop='dateModified' content='2020-07-30T16:10:41Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a class="mention" href="https://discourse.keleshev.com/u/apos">@Apos</a>, by the way, nice idea with using <code>@"\G"</code> and <code>Match(string, int)</code> overload to solve the problem of matching at a specific position in a string.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tell us about your compiler!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Compiling to Assembly from Scratch'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://discourse.keleshev.com/uploads/default/original/1X/7ed43fb87ad00ed48afdea6909c7967841dd7158.jpeg'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://discourse.keleshev.com/u/mukadr'><span itemprop='name'>mukadr</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-03T23:08:47Z' class='post-time'>
+                August 3, 2020, 11:08pm
+              </time>
+              <meta itemprop='dateModified' content='2020-08-03T23:08:47Z'>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m first writing the parser combinator utilities in a separate project, in C# (.NET Core): <a href="https://github.com/mukadr/ParseDotNet" rel="nofollow noopener">https://github.com/mukadr/ParseDotNet</a></p>
+<p>The next part will be a compiler for some Pascal dialect, targeting ARM as explained in the book. I’m using my spare time to work on this project and study more about code generation. I would like to do register allocation.</p>
+<p>I liked the approach used in the book for writing parsers. It is convenient to test each piece separately.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tell us about your compiler!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Compiling to Assembly from Scratch'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://discourse.keleshev.com/uploads/default/original/1X/7ed43fb87ad00ed48afdea6909c7967841dd7158.jpeg'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://discourse.keleshev.com/u/keleshev'><span itemprop='name'>keleshev</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-04T13:11:30Z' class='post-time'>
+                August 4, 2020,  1:11pm
+              </time>
+              <meta itemprop='dateModified' content='2020-08-04T13:11:30Z'>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Welcome, <a class="mention" href="https://discourse.keleshev.com/u/mukadr">@mukadr</a>! Your parser combinators look good. It is interesting to compare with <a class="mention" href="https://discourse.keleshev.com/u/apos">@Apos</a>’ approach. It seems that you’ve decided not to use regular expressions, but instead have several <code>sourse.Match</code> overloads for chars and strings and such? This should also work. It will also be interesting to see if you know a way to combat the verbose type annotations, like in <a class="mention" href="https://discourse.keleshev.com/u/apos">@Apos</a> case:</p>
+<pre><code class="lang-auto">public static Parser&lt;Func&lt;AST, Not&gt;&gt; NOT = token(@"!").Map&lt;Func&lt;AST, Not&gt;&gt;(_ =&gt; term =&gt; new Not(term));
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Tell us about your compiler!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Compiling to Assembly from Scratch'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://discourse.keleshev.com/uploads/default/original/1X/7ed43fb87ad00ed48afdea6909c7967841dd7158.jpeg'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://discourse.keleshev.com/u/mukadr'><span itemprop='name'>mukadr</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-04T14:03:11Z' class='post-time'>
+                August 4, 2020,  2:03pm
+              </time>
+              <meta itemprop='dateModified' content='2020-08-04T14:03:11Z'>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yes, it matches chars and ZeroOrMore/OneOrMore concatenate them into a string. So far it seems enough for my needs.</p>
+<p>One problem I had with the Parser class was with static methods.</p>
+<p>Since Parser has a generic type T, every call to a static method is required to specify the type T.</p>
+<p>For example (from <a class="mention" href="https://discourse.keleshev.com/u/apos">@Apos</a>):</p>
+<p><code>public static Parser&lt;string&gt; Whitespace = Parser&lt;string&gt;.Regexp(@"[ \n\r\t]+");</code></p>
+<p>Notice that <code>Parser&lt;string&gt;.Regexp</code> could be written as <code>Parser.Regexp</code>, since it does not depend on the type T.</p>
+<p>To solve this issue in C#, one can move the static methods to a different class, like:</p>
+<pre><code>public static class ParserFactory
+{
+    …
+    public static Parser&lt;string&gt; Regexp(string regexp, RegexOptions options = RegexOptions.None) {
+    …
+}
+</code></pre>
+<p>Then you can get rid of the generics:</p>
+<p><code>var parser = ParserFactory.Regexp(…);</code></p>
+<p>There is also “using static" declaration to import all static methods from a class:</p>
+<pre><code>using static x.y.ParserFactory;
+…
+    { 
+        var parser = Regexp(…);
+    }
+…
+</code></pre>
+<p>Unfortunately I could not find a way to simplify the class attributes, since var only works for local variables:</p>
+<p>public static <strong>Parser&lt;Func&lt;AST, Not&gt;&gt;</strong> NOT =  …</p>
+        </div>
+
+        <meta itemprop='headline' content='Tell us about your compiler!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Compiling to Assembly from Scratch'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://discourse.keleshev.com/uploads/default/original/1X/7ed43fb87ad00ed48afdea6909c7967841dd7158.jpeg'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://discourse.keleshev.com/u/nerdboy'><span itemprop='name'>nerdboy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-05T05:13:34Z' class='post-time'>
+                August 5, 2020,  5:13am
+              </time>
+              <meta itemprop='dateModified' content='2020-08-05T05:13:34Z'>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m writing my version of the compiler in Nim. It will hopefully compile your language (with a number of restictions) into the ARM assembly that you output. I currently have the AST portion completed as well as a lexer (using the regular expressions you had developed for this). I am currently working on the parser which should glue the other 2 modules.</p>
+<p>I do love the fact that built the way you have it - I can easily test the 3 modules separately.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tell us about your compiler!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Compiling to Assembly from Scratch'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://discourse.keleshev.com/uploads/default/original/1X/7ed43fb87ad00ed48afdea6909c7967841dd7158.jpeg'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://discourse.keleshev.com/u/keleshev'><span itemprop='name'>keleshev</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-05T21:19:59Z' class='post-time'>
+                August 5, 2020,  9:19pm
+              </time>
+              <meta itemprop='dateModified' content='2020-08-05T21:19:59Z'>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Looks like Nim has both variant types and inheritance with dynamic dispatch. Which one did you decide to use for the AST?</p>
+        </div>
+
+        <meta itemprop='headline' content='Tell us about your compiler!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Compiling to Assembly from Scratch'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://discourse.keleshev.com/uploads/default/original/1X/7ed43fb87ad00ed48afdea6909c7967841dd7158.jpeg'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://discourse.keleshev.com/u/nerdboy'><span itemprop='name'>nerdboy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-06T04:44:15Z' class='post-time'>
+                August 6, 2020,  4:44am
+              </time>
+              <meta itemprop='dateModified' content='2020-08-06T04:44:15Z'>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I used inheritance + dynamic dispatch with my AST. I think it leads to cleaner code.</p>
+<p>If I did variants - there are some limitations that drive me nuts (I tried it on some other nim code of mine and found some limitations). I also think that variants means that you would perhaps have one emit procedure that looks at which variant it is and then go from there (so either one big case statement or have it call a specific procedure (which is basically the same thing as dynamic dispatch in the end)).</p>
+        </div>
+
+        <meta itemprop='headline' content='Tell us about your compiler!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Compiling to Assembly from Scratch'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://discourse.keleshev.com/uploads/default/original/1X/7ed43fb87ad00ed48afdea6909c7967841dd7158.jpeg'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://discourse.keleshev.com/u/mukadr'><span itemprop='name'>mukadr</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-07T21:03:49Z' class='post-time'>
+                August 7, 2020,  9:03pm
+              </time>
+              <meta itemprop='dateModified' content='2020-08-07T21:03:49Z'>
+          <span itemprop='position'>#18</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Moved the code to another repository: <a href="https://github.com/mukadr/SharpPascal" rel="nofollow noopener">https://github.com/mukadr/SharpPascal</a></p>
+<p>Doing the parsing in a single method, so I can use <strong>var</strong> for all declarations: <a href="https://github.com/mukadr/SharpPascal/blob/master/src/SharpPascal/Syntax/PascalParser.cs" rel="nofollow noopener">https://github.com/mukadr/SharpPascal/blob/master/src/SharpPascal/Syntax/PascalParser.cs</a></p>
+<p>Thanks to this “functional approach to writing parsers” I’m considering ​​learning F# <img src="../../images/emoji/twitter/slight_smile.png%3Fv=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Tell us about your compiler!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Compiling to Assembly from Scratch'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://discourse.keleshev.com/uploads/default/original/1X/7ed43fb87ad00ed48afdea6909c7967841dd7158.jpeg'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://discourse.keleshev.com/u/keleshev'><span itemprop='name'>keleshev</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-08T08:06:13Z' class='post-time'>
+                August 8, 2020,  8:06am
+              </time>
+              <meta itemprop='dateModified' content='2020-08-08T08:06:13Z'>
+          <span itemprop='position'>#19</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yep, F# has good type inference and would be a good fit for this. It would look something like this, in your case:</p>
+<pre><code class="lang-auto">module PascalParser = 
+
+  let mutable currentLine = 1
+
+  let report message = sprintf "%d: %s" currentLine message
+
+  let whitespace =
+    OneOrMore(
+      Symbol(' ')
+        .Or(Symbol('\t'))
+        .Or(Symbol('\n').Bind(fun c -&gt; 
+          currentLine &lt;- currentLine + 1;
+          Constant(c)
+    )).Or(Symbol('\r')))
+
+  ...
+</code></pre>
+<p>Where module is similar to a static class.</p>
+<p>By the way, nice that you track the current line number. It can be incorporated into the <code>Source</code> class to make it transparent to the user of it.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tell us about your compiler!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Compiling to Assembly from Scratch'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://discourse.keleshev.com/uploads/default/original/1X/7ed43fb87ad00ed48afdea6909c7967841dd7158.jpeg'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://discourse.keleshev.com/u/keleshev'><span itemprop='name'>keleshev</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-08T10:00:28Z' class='post-time'>
+                August 8, 2020, 10:00am
+              </time>
+              <meta itemprop='dateModified' content='2020-08-08T10:00:28Z'>
+          <span itemprop='position'>#20</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a class="mention" href="https://discourse.keleshev.com/u/mukadr">@mukadr</a> just thought that because of backtracking, the <code>currentLine++;</code> might be executed erroneously multiple times on the same line.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tell us about your compiler!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="11%3Fpage=2.html">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    
+    
+  </body>
+  
+</html>

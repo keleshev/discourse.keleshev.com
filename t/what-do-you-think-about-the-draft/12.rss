@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>What do you think about the draft?</title>
+    <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12</link>
+    <description>What do you think about the draft? How far are you in? What&#39;s working and what can be improved?</description>
+    
+    <lastBuildDate>Sun, 16 Aug 2020 20:56:47 +0000</lastBuildDate>
+    <category>Uncategorized</category>
+    <atom:link href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="/u/jdh30">@jdh30</a> I’m glad you liked it! And I’m especially pleased to hear it from the author of <a href="https://ffconsultancy.com/products/ocaml_journal/index.html">The OCaml Journal</a> that I used to read.</p>
+<p>Yeah, as I say, TypeScript is probably nobody’s favorite, but I was surprised to find it half as bad as I thought. I was struggling to pick between JS, Python, and C#, and thought that TypeScript might not be a bad compromise.</p>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/54">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/54</link>
+        <pubDate>Sun, 16 Aug 2020 20:56:47 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-54</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[jdh30]]></dc:creator>
+        <description><![CDATA[
+            <p>I love it! Am a third of the way through the book and I’ve read the entire (incomplete) OCaml source code.</p>
+<p>My only gripe is the implementation languages but I’d struggle to recommend a better one. Only one thing for it: we must invent a better language! <img src="https://discourse.keleshev.com/images/emoji/twitter/grinning.png?v=9" title=":grinning:" class="emoji" alt=":grinning:"></p>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/53">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/53</link>
+        <pubDate>Sun, 16 Aug 2020 18:35:14 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-53</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p>Yeah, in the book it says:</p>
+<pre><code class="lang-auto">return new Parser(source =&gt; { throw Error(message) });
+</code></pre>
+<p>As it should. In the repo what you see is a left-over from a time I was debugging the parser. For that, instead of printing a message, I printed the source starting from the current location (source.index) as a way to see where the parser encountered this error. I will change it back to <code>throw Error(message)</code> in the repo.</p>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/52">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/52</link>
+        <pubDate>Mon, 27 Jul 2020 16:31:33 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-52</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[Apos]]></dc:creator>
+        <description><![CDATA[
+            <p>In the code for the baseline compiler, there’s this line:</p>
+<aside class="onebox githubblob">
+  <header class="source">
+      <a href="https://github.com/keleshev/compiling-to-assembly-from-scratch/blob/136b382f148ca4899bf27069c118ea44ea5775f7/compiler.ts#L56" target="_blank" rel="nofollow noopener">github.com</a>
+  </header>
+  <article class="onebox-body">
+    <h4><a href="https://github.com/keleshev/compiling-to-assembly-from-scratch/blob/136b382f148ca4899bf27069c118ea44ea5775f7/compiler.ts#L56" target="_blank" rel="nofollow noopener">keleshev/compiling-to-assembly-from-scratch/blob/136b382f148ca4899bf27069c118ea44ea5775f7/compiler.ts#L56</a></h4>
+<pre class="onebox"><code class="lang-ts"><ol class="start lines" start="46" style="counter-reset: li-counter 45 ;">
+<li>
+</li><li>static regexp(regexp: RegExp): Parser&lt;string&gt; {</li>
+<li>  return new Parser(source =&gt; source.match(regexp));</li>
+<li>}</li>
+<li>
+</li><li>static constant&lt;U&gt;(value: U): Parser&lt;U&gt; {</li>
+<li>  return new Parser(source =&gt; new ParseResult(value, source));</li>
+<li>}</li>
+<li>
+</li><li>static error&lt;U&gt;(message: string): Parser&lt;U&gt; {</li>
+<li class="selected">  return new Parser(source =&gt; { throw Error(source.string.slice(source.index)) });</li>
+<li>}</li>
+<li>
+</li><li>
+</li><li>or(parser: Parser&lt;T&gt;): Parser&lt;T&gt; {</li>
+<li>  return new Parser((source) =&gt; {</li>
+<li>    let result = this.parse(source);</li>
+<li>    if (result)</li>
+<li>      return result;</li>
+<li>    else</li>
+<li>      return parser.parse(source);</li>
+</ol></code></pre>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>You pass an error message, but it’s never used. Also that code is different from what I see in the book.</p>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/51">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/51</link>
+        <pubDate>Mon, 27 Jul 2020 06:03:11 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-51</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="/u/apos">@Apos</a> Congrats! Let us know how it unfolds!</p>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/50">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/50</link>
+        <pubDate>Mon, 20 Jul 2020 19:52:02 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-50</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[Apos]]></dc:creator>
+        <description><![CDATA[
+            <p>I finished the book. Now I’m at the point where I can code something.</p>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/49">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/49</link>
+        <pubDate>Mon, 20 Jul 2020 19:51:20 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-49</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[Apos]]></dc:creator>
+        <description><![CDATA[
+            <p>Page 116:</p>
+<blockquote>
+<p>whenever we encounter and identifier node</p>
+</blockquote>
+<p><code>and</code> should be <code>an</code>.</p>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/48">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/48</link>
+        <pubDate>Mon, 20 Jul 2020 19:50:06 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-48</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[Apos]]></dc:creator>
+        <description><![CDATA[
+            <p>7.19 last paragraph:</p>
+<blockquote>
+<p>conditionl execution</p>
+</blockquote>
+<p>I found some other ones, but I forgot to save them. Now I’m in chapter 8.</p>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/47">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/47</link>
+        <pubDate>Sun, 19 Jul 2020 03:45:39 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-47</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[gmarik]]></dc:creator>
+        <description><![CDATA[
+            <p>so far so good!<br>
+looking forward to getting to the coding part, and actually testing my understanding.</p>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/46">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/46</link>
+        <pubDate>Sat, 18 Jul 2020 16:02:25 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-46</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="/u/gmarik">@gmarik</a>, you are pretty far into the book! What do you think about the chapters so far?</p>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/45">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/45</link>
+        <pubDate>Sat, 18 Jul 2020 15:42:48 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-45</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[gmarik]]></dc:creator>
+        <description><![CDATA[
+            <p>p96: is double negative here necessary? <img src="https://discourse.keleshev.com/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<blockquote>
+<p>So, why not pop the return address not back into lr, but directly into pc?</p>
+</blockquote>
+<p>p111: is it worth pointing out that “improvement” means trading readability for brevity?<br>
+Because, as a reader/student, the “pre-improvement” version is easier to follow than the “improved” one.</p>
+<blockquote>
+<p>We can do precisely that, but there are few improvements that we can make.</p>
+</blockquote>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/44">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/44</link>
+        <pubDate>Sat, 18 Jul 2020 15:27:45 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-44</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="/u/apos">@Apos</a> yes, the motivation was just to show a bit of assembly. Hello-world is a classic, but I wanted to include some simple instruction like <code>add</code> and <code>mov</code> as well. I will think of another example/explanation.</p>
+<p>Also, I plan to change the <em>Taste of assembly</em> section: instead of numbers in the code (<code>/* 1 */</code>) that are referenced in the text, I want to present full code listing, and then repeat relevant instructions intertwined with explanations.</p>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/43">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/43</link>
+        <pubDate>Thu, 16 Jul 2020 06:44:23 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-43</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="/u/gmarik">@gmarik</a> instead of <code>SEMICOLON.and(constant(new Return(term)))</code> it could have been <code>SEMICOLON.map((_) =&gt; new Return(term))</code>. Would the later make more sense to you?</p>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/42">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/42</link>
+        <pubDate>Thu, 16 Jul 2020 06:39:58 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-42</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[Apos]]></dc:creator>
+        <description><![CDATA[
+            <p>In chapter 7.1, the assembly program sets a value to <code>41</code> then adds <code>1</code> to create <code>42</code>. I didn’t fully understand the motivation for doing that. Was it to show an addition? Is there a meaning to error code <code>42</code>? Or it’s the answer to the Ultimate Question of Life, the Universe, and Everything?</p>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/41">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/41</link>
+        <pubDate>Thu, 16 Jul 2020 05:49:57 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-41</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[gmarik]]></dc:creator>
+        <description><![CDATA[
+            <p>swapped: Code doesn’t match the operator<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://discourse.keleshev.com/uploads/default/original/1X/a1e0fb2457208b645b1d220c594fe3cdd273a8be.jpeg" data-download-href="https://discourse.keleshev.com/uploads/default/a1e0fb2457208b645b1d220c594fe3cdd273a8be" title="image"><img src="https://discourse.keleshev.com/uploads/default/optimized/1X/a1e0fb2457208b645b1d220c594fe3cdd273a8be_2_345x68.jpeg" alt="image" data-base62-sha1="n62TkeKxXmGqdCrgeYKAXHpfKY6" width="345" height="68" srcset="https://discourse.keleshev.com/uploads/default/optimized/1X/a1e0fb2457208b645b1d220c594fe3cdd273a8be_2_345x68.jpeg, https://discourse.keleshev.com/uploads/default/optimized/1X/a1e0fb2457208b645b1d220c594fe3cdd273a8be_2_517x102.jpeg 1.5x, https://discourse.keleshev.com/uploads/default/optimized/1X/a1e0fb2457208b645b1d220c594fe3cdd273a8be_2_690x136.jpeg 2x" data-small-upload="https://discourse.keleshev.com/uploads/default/optimized/1X/a1e0fb2457208b645b1d220c594fe3cdd273a8be_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">702×139 23.4 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>p82: did the bullet list get collapsed? Next paragraph has the same issue</p>
+<blockquote>
+<p>The data section declared with .data assembly directive is a span of memory that you are allowed to: * read, * write, * but not exe- cute.</p>
+</blockquote>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/40">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/40</link>
+        <pubDate>Thu, 16 Jul 2020 04:15:31 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-40</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[gmarik]]></dc:creator>
+        <description><![CDATA[
+            <p>p57: astray ‘TODO’?</p>
+<blockquote>
+<p>// varStatement &lt;- TODO<br>
+// VAR ID ASSIGN expression SEMICOLON</p>
+</blockquote>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/39">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/39</link>
+        <pubDate>Thu, 16 Jul 2020 02:49:07 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-39</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[gmarik]]></dc:creator>
+        <description><![CDATA[
+            <blockquote>
+<p>// returnStatement &lt;- RETURN expression SEMICOLON<br>
+let returnStatement: Parser = RETURN.and(expression).bind((term) =&gt;<br>
+SEMICOLON.and(constant(new Return(term))));</p>
+</blockquote>
+<p>Am i understanding it correctly, the last ‘and(constant…’ is not about matching syntax but rather than completing the match and returning the Return AST?<br>
+Would ‘map’ make more sense there instead?</p>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/38">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/38</link>
+        <pubDate>Thu, 16 Jul 2020 02:43:25 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-38</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="/u/apos">@Apos</a> I’m glad you like it! Haven’t read that one—gonna check it out.</p>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/37">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/37</link>
+        <pubDate>Wed, 15 Jul 2020 20:20:55 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-37</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[Apos]]></dc:creator>
+        <description><![CDATA[
+            <p>So far I like the book, it’s easy to follow and it feels like a spiritual successor to <a href="https://compilers.iecc.com/crenshaw/" rel="nofollow noopener">Let’s Build a Compiler</a>.</p>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/36">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/36</link>
+        <pubDate>Wed, 15 Jul 2020 20:05:55 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-36</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[Apos]]></dc:creator>
+        <description><![CDATA[
+            <p>Sounds good. It’s just a case against hardcoding absolute jump values when possible.</p>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/35">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/35</link>
+        <pubDate>Wed, 15 Jul 2020 19:57:14 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-35</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p>A common way to introduce labels in literature is to say that a label stands for an address. And you use labels because you don’t know the actual addresses yet.</p>
+<p>However, in ARM, branching is pc-related. You don’t jump to an address, but change the value of <code>pc</code>. That’s why I wanted, instead, to introduce branching as a more convenient way to manipulate <code>pc</code>. And the results are mixed.</p>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/34">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/34</link>
+        <pubDate>Wed, 15 Jul 2020 19:57:03 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-34</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p>Yeah, that didn’t come out right. What I meant is to highlight that if you have code like this:</p>
+<pre><code class="lang-auto">    add pc, pc, #8
+    add r0, r0, #1  
+    add r0, r0, #2  
+    sub r0, r0, #4  
+</code></pre>
+<p>And you want to jump to the <code>sub</code> instruction, you add <code>8</code> to <code>pc</code>. But if you insert one more instructions like this:</p>
+<pre><code class="lang-auto">    add pc, pc, #8
+    add r0, r0, #1  
+    add r0, r0, #2  
+    add r0, r0, #3  
+    sub r0, r0, #4  
+</code></pre>
+<p>And you still want to jump to <code>sub</code>, then you need to change the <code>pc</code> offset from <code>8</code> to <code>12</code>.<br>
+Here, I’m trying to create motivation for lables: a way to get all offsets right, even if more instructions are inserted here and there.</p>
+<p>I will have to come up with a better example for the book.</p>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/33">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/33</link>
+        <pubDate>Wed, 15 Jul 2020 19:52:44 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-33</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[Apos]]></dc:creator>
+        <description><![CDATA[
+            <p>In section 7.13, the first paragraph has the sentence:</p>
+<blockquote>
+<p>Every time we add an instruction to our program, the offset of all the following instructions addresses.</p>
+</blockquote>
+<p>What does that mean?</p>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/32">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/32</link>
+        <pubDate>Wed, 15 Jul 2020 19:44:15 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-32</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="/u/patrick">@patrick</a> thanks for the suggestions, keep 'em coming! I’m incorporating the small fixes into the next version of the draft.</p>
+<p><a class="mention" href="/u/gmarik">@gmarik</a> good point about the precedence, I will need to give some more thought how to describe it better. <a class="mention" href="/u/apos">@Apos</a> you’ve provided a good description, I will probably incorporate something similar.</p>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/31">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/31</link>
+        <pubDate>Wed, 15 Jul 2020 19:16:43 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-31</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+      <item>
+        <title>What do you think about the draft?</title>
+        <dc:creator><![CDATA[Apos]]></dc:creator>
+        <description><![CDATA[
+            <p>Visually, you can think of it this way:</p>
+<pre><code class="lang-auto">product &lt;- unary ((STAR / SLASH) unary)*
+sum &lt;- product ((PLUS / MINUS) product)*
+comparison &lt;- sum ((EQUAL / NOT_EQUAL) sum)*
+</code></pre>
+<p>Comparison has the lowest precedence, while product has the highest.</p>
+<p>If you see this: <code>1 + 2 * 3 != 4 * 5 + 6</code></p>
+<p>You want the tree to look like: <code>((1 + (2 * 3)) != ((4 * 5) + 6))</code></p>
+<p>We start the parsing, we look for a comparison. Comparison looks for a sum. Sum looks for a product. Product looks for a unary which ends up finding the <code>1</code>. Now product looks for a <code>*</code> or <code>/</code>. Doesn’t find any so we go back up to sum. Sum looks for <code>+</code> and finds it. Then it looks for a product again. Product goes down, finds <code>2</code> then looks for <code>*</code>, it finds it then looks for the next unary aka <code>3</code>. That’s the part that creates our first inner “parentheses” (2 * 3). Then we bubble up to sum, we don’t find any <code>+</code> or <code>-</code> so get our second “parentheses” (1 + (2 * 3)) we get back to comparison and that takes care of the left side.</p>
+<p>Does this make more sense? You can think of the word precedence as a parentheses to force an operation to get evaluated first.</p>
+          <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/30">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12/30</link>
+        <pubDate>Wed, 15 Jul 2020 05:29:44 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-12-30</guid>
+        <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:discourse="http://www.discourse.org/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Compiling to Assembly from Scratch - Latest topics</title>
+    <link>https://discourse.keleshev.com/latest</link>
+    <description>Latest topics</description>
+    
+      <lastBuildDate>Fri, 26 Feb 2021 17:11:49 +0000</lastBuildDate>
+      <atom:link href="https://discourse.keleshev.com/latest.rss" rel="self" type="application/rss+xml" />
+        <item>
+          <title>What&#39;s the recommended way to implement the part-1?</title>
+          <dc:creator><![CDATA[gmarik]]></dc:creator>
+          <category>Uncategorized</category>
+          <description><![CDATA[
+            <p>Starting implementing the compiler(part 1).</p>
+<p>What’s the recommended way to implement it?<br>
+Follow the part 1 of the book and write those parsers and implementations out?</p>
+<p>Though i did peek into provided implementation of the <code>compiler.ts</code> I feel like copying it would be a poor way to really learn the details…</p>
+<p>Some notes:</p>
+<ol>
+<li>building Docker-ized environment since I rather not install all the tooling on the host machine and i’m on OSX.</li>
+<li>5.3 Interface: missing argument name: <code>src: Source</code> in</li>
+</ol>
+<pre><code class="lang-auto">interface Parser&lt;T&gt; {
+    parse(Source): ParseResult&lt;T&gt; | null;
+} 
+</code></pre>
+            <p><small>11 posts - 2 participants</small></p>
+            <p><a href="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118">Read full topic</a></p>
+          ]]></description>
+          <link>https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118</link>
+          <pubDate>Fri, 26 Feb 2021 17:11:49 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">discourse.keleshev.com-topic-118</guid>
+          <source url="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118.rss">What&#39;s the recommended way to implement the part-1?</source>
+        </item>
+        <item>
+          <title>Regex kleene star question</title>
+          <dc:creator><![CDATA[gmarik]]></dc:creator>
+          <category>Uncategorized</category>
+          <description><![CDATA[
+            <p>reading again the book since it’s complete and stumbled on</p>
+<blockquote>
+<p>A regular expression <code>a*a</code> will match one or more letters <code>a</code>. However, <code>a*a</code> in PEG will never match anything…</p>
+</blockquote>
+<p>On page 44.</p>
+<p>TIL! I assumed regex matched like PEG but turns out it’s not the case.<br>
+Is it due to backtracking in regexp? Where is this behaviour documented?</p>
+<p>Thanks!</p>
+            <p><small>3 posts - 2 participants</small></p>
+            <p><a href="https://discourse.keleshev.com/t/regex-kleene-star-question/115">Read full topic</a></p>
+          ]]></description>
+          <link>https://discourse.keleshev.com/t/regex-kleene-star-question/115</link>
+          <pubDate>Wed, 24 Feb 2021 06:49:54 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">discourse.keleshev.com-topic-115</guid>
+          <source url="https://discourse.keleshev.com/t/regex-kleene-star-question/115.rss">Regex kleene star question</source>
+        </item>
+        <item>
+          <title>Godbolt looks like not support running assembly for now</title>
+          <dc:creator><![CDATA[gengjiawen]]></dc:creator>
+          <category>Uncategorized</category>
+          <description><![CDATA[
+            <aside class="onebox whitelistedgeneric">
+  <header class="source">
+      <img src="https://godbolt.org/favicon.ico?v=1" class="site-icon" width="64" height="64">
+      <a href="https://godbolt.org/z/f18j7K" target="_blank" rel="nofollow noopener">godbolt.org</a>
+  </header>
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:125/128;"><img src="https://discourse.keleshev.com/uploads/default/original/1X/dd9874f0b994bec48643e9c6c181a1d98c074fd4.png" class="thumbnail" width="125" height="128"></div>
+
+<h3><a href="https://godbolt.org/z/f18j7K" target="_blank" rel="nofollow noopener">Compiler Explorer - Assembly (x86-64 gcc (trunk))</a></h3>
+
+<p>.data
+  hello:
+    .string "Hello, assembly!"
+.text
+  .global main
+  main:
+    push {ip, lr}
+    ldr r0, =hello
+    bl printf
+    mov r0, #41
+    add r0, r0, #1  // Increment
+    pop {ip, lr}
+    bx lr</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>I create an issue: <a href="https://github.com/compiler-explorer/compiler-explorer/issues/2387" rel="nofollow noopener">https://github.com/compiler-explorer/compiler-explorer/issues/2387</a>.</p>
+<p>Also, a link to generate C to armv7a code: <a href="https://godbolt.org/z/54n11P" rel="nofollow noopener">https://godbolt.org/z/54n11P</a></p>
+            <p><small>1 post - 1 participant</small></p>
+            <p><a href="https://discourse.keleshev.com/t/godbolt-looks-like-not-support-running-assembly-for-now/113">Read full topic</a></p>
+          ]]></description>
+          <link>https://discourse.keleshev.com/t/godbolt-looks-like-not-support-running-assembly-for-now/113</link>
+          <pubDate>Wed, 13 Jan 2021 03:40:08 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">discourse.keleshev.com-topic-113</guid>
+          <source url="https://discourse.keleshev.com/t/godbolt-looks-like-not-support-running-assembly-for-now/113.rss">Godbolt looks like not support running assembly for now</source>
+        </item>
+        <item>
+          <title>Code repository reorganization</title>
+          <dc:creator><![CDATA[keleshev]]></dc:creator>
+          <category>Uncategorized</category>
+          <description><![CDATA[
+            <p>The book’s code repository had its structure changed:</p>
+<ul>
+<li><a href="https://github.com/keleshev/compiling-to-assembly-from-scratch">https://github.com/keleshev/compiling-to-assembly-from-scratch</a></li>
+</ul>
+<p>Before, code for the baseline compiler (from <em>Part I</em>) was in the <code>main</code> branch, and the code for the extended compiler (from <em>Part II</em>) was in the <code>part-2</code> branch. Now the two compilers reside on the <code>main</code> branch in separate folders.</p>
+<p>Thanks, <a class="mention" href="/u/gengjiawen">@gengjiawen</a> for raising the issue about this.</p>
+            <p><small>2 posts - 2 participants</small></p>
+            <p><a href="https://discourse.keleshev.com/t/code-repository-reorganization/112">Read full topic</a></p>
+          ]]></description>
+          <link>https://discourse.keleshev.com/t/code-repository-reorganization/112</link>
+          <pubDate>Tue, 12 Jan 2021 16:17:26 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">discourse.keleshev.com-topic-112</guid>
+          <source url="https://discourse.keleshev.com/t/code-repository-reorganization/112.rss">Code repository reorganization</source>
+        </item>
+        <item>
+          <title>Expression parser understand</title>
+          <dc:creator><![CDATA[gengjiawen]]></dc:creator>
+          <category>Uncategorized</category>
+          <description><![CDATA[
+            <p>How to better understand this pic. Is this ocml grammar ?</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://discourse.keleshev.com/uploads/default/original/1X/b572bfe53c97260c6fff2ec870f7fc3c18263ebe.png" data-download-href="https://discourse.keleshev.com/uploads/default/b572bfe53c97260c6fff2ec870f7fc3c18263ebe" title="image"><img src="https://discourse.keleshev.com/uploads/default/optimized/1X/b572bfe53c97260c6fff2ec870f7fc3c18263ebe_2_690x352.png" alt="image" data-base62-sha1="pTagRDnLJIhxFwSaPQXmI4gmrz8" width="690" height="352" srcset="https://discourse.keleshev.com/uploads/default/optimized/1X/b572bfe53c97260c6fff2ec870f7fc3c18263ebe_2_690x352.png, https://discourse.keleshev.com/uploads/default/optimized/1X/b572bfe53c97260c6fff2ec870f7fc3c18263ebe_2_1035x528.png 1.5x, https://discourse.keleshev.com/uploads/default/optimized/1X/b572bfe53c97260c6fff2ec870f7fc3c18263ebe_2_1380x704.png 2x" data-small-upload="https://discourse.keleshev.com/uploads/default/optimized/1X/b572bfe53c97260c6fff2ec870f7fc3c18263ebe_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">1507×770 50 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+            <p><small>12 posts - 3 participants</small></p>
+            <p><a href="https://discourse.keleshev.com/t/expression-parser-understand/110">Read full topic</a></p>
+          ]]></description>
+          <link>https://discourse.keleshev.com/t/expression-parser-understand/110</link>
+          <pubDate>Sun, 03 Jan 2021 14:02:26 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">discourse.keleshev.com-topic-110</guid>
+          <source url="https://discourse.keleshev.com/t/expression-parser-understand/110.rss">Expression parser understand</source>
+        </item>
+        <item>
+          <title>Thank you page still mentions pre-order</title>
+          <dc:creator><![CDATA[JoshMcguigan]]></dc:creator>
+          <category>Uncategorized</category>
+          <description><![CDATA[
+            <p>Hi! Thanks for writing this book. I just purchased it, and I believe this is after the pre-order period, but I noticed the <code>Thank you</code> page after purchasing still mentions <code>pre-order</code>.</p>
+<blockquote>
+<p>Thank you for your pre-order! You will receive an email with a download link shortly.</p>
+</blockquote>
+<p>This is certainly not a big deal, but just thought you might want to know. Thanks again! Looking forward to working through the book.</p>
+            <p><small>2 posts - 2 participants</small></p>
+            <p><a href="https://discourse.keleshev.com/t/thank-you-page-still-mentions-pre-order/84">Read full topic</a></p>
+          ]]></description>
+          <link>https://discourse.keleshev.com/t/thank-you-page-still-mentions-pre-order/84</link>
+          <pubDate>Sat, 03 Oct 2020 17:08:00 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">discourse.keleshev.com-topic-84</guid>
+          <source url="https://discourse.keleshev.com/t/thank-you-page-still-mentions-pre-order/84.rss">Thank you page still mentions pre-order</source>
+        </item>
+        <item>
+          <title>Final Book section missing?</title>
+          <dc:creator><![CDATA[nerdboy]]></dc:creator>
+          <category>Uncategorized</category>
+          <description><![CDATA[
+            <p>Hi Vladimir,</p>
+<p>I pulled the latest version of the book bcause the final version came out. I went looking at the table of contents and found one of the sections missing. The section was labelled as “Optimizations” (In the last pdf - it was listed under Part 2 as section 9).</p>
+<p>I also checked the github tree and found that there at least one thing that would have been part of that section:</p>
+<ul>
+<li>Constant Folding</li>
+</ul>
+<p>I wondered if you just forgot to put that in - or if this was on purpose as a “exercise” for people reading the book.</p>
+            <p><small>3 posts - 3 participants</small></p>
+            <p><a href="https://discourse.keleshev.com/t/final-book-section-missing/78">Read full topic</a></p>
+          ]]></description>
+          <link>https://discourse.keleshev.com/t/final-book-section-missing/78</link>
+          <pubDate>Sun, 27 Sep 2020 22:31:52 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">discourse.keleshev.com-topic-78</guid>
+          <source url="https://discourse.keleshev.com/t/final-book-section-missing/78.rss">Final Book section missing?</source>
+        </item>
+        <item>
+          <title>Error sending book to Kindle</title>
+          <dc:creator><![CDATA[evalparse]]></dc:creator>
+          <category>Uncategorized</category>
+          <description><![CDATA[
+            <p>ear Customer,</p>
+<p>The following document, sent at 12:21 PM on Mon, Sep 07, 2020 GMT could not be delivered to the Kindle you specified:</p>
+<ul>
+<li>draft-compiling-to-assembly-from-scratch.pdf</li>
+</ul>
+<p>The Kindle Personal Document Service can convert and deliver the following types of documents:<br>
+Microsoft Word (.doc, .docx)<br>
+Rich Text Format (.rtf)<br>
+HTML (.htm, .html)<br>
+Text (.txt) documents<br>
+Archived documents (zip , x-zip) and compressed archived documents<br>
+Mobi book</p>
+<p>Images that are of type JPEGs (.jpg), GIFs (.gif), Bitmaps (.bmp), and PNG images (.png).<br>
+Adobe PDF (.pdf) documents are delivered without conversion to Kindle DX, Second Generation and Latest Generation Kindles.</p>
+<p>Adobe PDF (.pdf) can be converted to Kindle format and delivered on an experimental basis.</p>
+<p>This is the error message I get when I try to send the book to kindle.</p>
+<p>If the document that failed belonged to one of the above document types, please ensure the document is not password protected or encrypted. Note that the Latest Generation Kindles support password protected PDFs.</p>
+<p>Helpful tips for personal document attachments:</p>
+<p>The file size of each attached personal document should be less than 50MB (before compression in a ZIP file)</p>
+<p>The email submitted should not contain more than 25 attached personal documents</p>
+            <p><small>3 posts - 2 participants</small></p>
+            <p><a href="https://discourse.keleshev.com/t/error-sending-book-to-kindle/70">Read full topic</a></p>
+          ]]></description>
+          <link>https://discourse.keleshev.com/t/error-sending-book-to-kindle/70</link>
+          <pubDate>Mon, 07 Sep 2020 12:25:51 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">discourse.keleshev.com-topic-70</guid>
+          <source url="https://discourse.keleshev.com/t/error-sending-book-to-kindle/70.rss">Error sending book to Kindle</source>
+        </item>
+        <item>
+          <title>Part II: Source code is here</title>
+          <dc:creator><![CDATA[keleshev]]></dc:creator>
+          <category>Uncategorized</category>
+          <description><![CDATA[
+            <p>I’m still working on Part II of the book but wanted to share some of the source code from Part II which is now available in branch <code>part-2</code> of the book code repository:</p>
+<aside class="onebox whitelistedgeneric">
+  <header class="source">
+      <img src="https://github.githubassets.com/favicons/favicon.svg" class="site-icon" width="32" height="32">
+      <a href="https://github.com/keleshev/compiling-to-assembly-from-scratch/tree/part-2" target="_blank">GitHub</a>
+  </header>
+  <article class="onebox-body">
+    <img src="https://discourse.keleshev.com/uploads/default/original/1X/07193aa55d468b792f4c91db7322ad4a9582bf90.jpeg" class="thumbnail onebox-avatar" width="400" height="400">
+
+<h3><a href="https://github.com/keleshev/compiling-to-assembly-from-scratch/tree/part-2" target="_blank">keleshev/compiling-to-assembly-from-scratch</a></h3>
+
+<p>Source code for the book Compiling to Assembly from Scratch https://keleshev.com/compiling-to-assembly-from-scratch-the-book - keleshev/compiling-to-assembly-from-scratch</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>Some of the new things (that will be discussed in Part II) are:</p>
+<ul>
+<li>Primitive types like boolean,</li>
+<li>Arrays and heap allocation,</li>
+<li>Visitors (code generation is converted to a visitor),</li>
+<li>Type checking (also implemented as a visitor).</li>
+</ul>
+<p>Also, source code is now split into modules, but this won’t be covered in the book.</p>
+<p>Let me know what you think! My goal is still to finalize the book before the end of this month.</p>
+            <p><small>1 post - 1 participant</small></p>
+            <p><a href="https://discourse.keleshev.com/t/part-ii-source-code-is-here/68">Read full topic</a></p>
+          ]]></description>
+          <link>https://discourse.keleshev.com/t/part-ii-source-code-is-here/68</link>
+          <pubDate>Sun, 06 Sep 2020 17:52:22 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">discourse.keleshev.com-topic-68</guid>
+          <source url="https://discourse.keleshev.com/t/part-ii-source-code-is-here/68.rss">Part II: Source code is here</source>
+        </item>
+        <item>
+          <title>Language description thoughts</title>
+          <dc:creator><![CDATA[nerdboy]]></dc:creator>
+          <category>Uncategorized</category>
+          <description><![CDATA[
+            <p>Hi,</p>
+<p>I love the draft and have gone through it. The language itself is simple and basic - but there is one thing that you might consider adding that seems very relevant to your description of the language. You describe the language as:</p>
+<blockquote>
+<p>But the compiler’s source or input language is a subset (or a simpli-<br>
+fied version) of TypeScript.</p>
+</blockquote>
+<p>One thing that I think migh be important to some is the idea of reserved keywords (or in your language - there does not seem to be any). For example - in your language - I can do this:</p>
+<blockquote>
+<p>var if = 10;</p>
+</blockquote>
+<p>Which allows one to do this:</p>
+<blockquote>
+<p>if (if == 10)</p>
+</blockquote>
+<p>To some this might seem like a small thing - but I think by adding in a quick note about there not being any reserved keywords for variable names and the like - it would be helpful to others.</p>
+            <p><small>4 posts - 2 participants</small></p>
+            <p><a href="https://discourse.keleshev.com/t/language-description-thoughts/53">Read full topic</a></p>
+          ]]></description>
+          <link>https://discourse.keleshev.com/t/language-description-thoughts/53</link>
+          <pubDate>Sun, 26 Jul 2020 21:06:57 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">discourse.keleshev.com-topic-53</guid>
+          <source url="https://discourse.keleshev.com/t/language-description-thoughts/53.rss">Language description thoughts</source>
+        </item>
+        <item>
+          <title>FASMARM instead of GAS?</title>
+          <dc:creator><![CDATA[Apos]]></dc:creator>
+          <category>Uncategorized</category>
+          <description><![CDATA[
+            <p>Have you tried FASMARM instead of GAS to assemble the ARM assembly?</p>
+<p><a href="https://arm.flatassembler.net/" rel="nofollow noopener">https://arm.flatassembler.net/</a></p>
+<p>It’s built as macros on top of FASM <a href="http://flatassembler.net/" rel="nofollow noopener">http://flatassembler.net/</a>.</p>
+<p>Here is the wiki entry: <a href="https://en.wikipedia.org/wiki/FASM" rel="nofollow noopener">https://en.wikipedia.org/wiki/FASM</a>.</p>
+            <p><small>3 posts - 2 participants</small></p>
+            <p><a href="https://discourse.keleshev.com/t/fasmarm-instead-of-gas/39">Read full topic</a></p>
+          ]]></description>
+          <link>https://discourse.keleshev.com/t/fasmarm-instead-of-gas/39</link>
+          <pubDate>Tue, 14 Jul 2020 18:04:56 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">discourse.keleshev.com-topic-39</guid>
+          <source url="https://discourse.keleshev.com/t/fasmarm-instead-of-gas/39.rss">FASMARM instead of GAS?</source>
+        </item>
+        <item>
+          <title>What do you think about the draft?</title>
+          <dc:creator><![CDATA[keleshev]]></dc:creator>
+          <category>Uncategorized</category>
+          <description><![CDATA[
+            <p>What do you think about the draft? How far are you in? What’s working and what can be improved?</p>
+            <p><small>52 posts - 6 participants</small></p>
+            <p><a href="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12">Read full topic</a></p>
+          ]]></description>
+          <link>https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12</link>
+          <pubDate>Wed, 24 Jun 2020 19:14:37 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">discourse.keleshev.com-topic-12</guid>
+          <source url="https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12.rss">What do you think about the draft?</source>
+        </item>
+        <item>
+          <title>Tell us about your compiler!</title>
+          <dc:creator><![CDATA[keleshev]]></dc:creator>
+          <category>Uncategorized</category>
+          <description><![CDATA[
+            <p>Which language you are using to write it, and which language does it compile? What are your struggles? What are your successes?</p>
+            <p><small>30 posts - 8 participants</small></p>
+            <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11">Read full topic</a></p>
+          ]]></description>
+          <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11</link>
+          <pubDate>Wed, 24 Jun 2020 19:11:43 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">discourse.keleshev.com-topic-11</guid>
+          <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+        </item>
+        <item>
+          <title>Compiling to Assembly from Scratch forum is *discontinued*</title>
+          <dc:creator><![CDATA[system]]></dc:creator>
+          <category>Uncategorized</category>
+          <description><![CDATA[
+            <p>Thank you those who participated and provided valuable feedback and discussion!</p>
+<p>This forum did not see much use past the few months after the book launch, and hosting it requires non-negligible resources. That’s why I’m closing this forum, but keeping a scraped static version for posterity.</p>
+<p>In case you are looking for a place to discuss your compiler, programming language, or the book, I suggest the following Reddit communities:</p>
+<ul>
+<li><a href="https://www.reddit.com/r/Compilers/">https://www.reddit.com/r/Compilers/</a></li>
+<li><a href="https://www.reddit.com/r/ProgrammingLanguages/">https://www.reddit.com/r/ProgrammingLanguages/</a></li>
+</ul>
+<p>You can also contact me on Twitter <a href="https://twitter.com/keleshev">@keleshev</a> and by email <a href="mailto:vladimir@keleshev.com">vladimir@keleshev.com</a>.</p>
+<p>—Vladimir</p>
+            <p><small>1 post - 1 participant</small></p>
+            <p><a href="https://discourse.keleshev.com/t/compiling-to-assembly-from-scratch-forum-is-discontinued/7">Read full topic</a></p>
+          ]]></description>
+          <link>https://discourse.keleshev.com/t/compiling-to-assembly-from-scratch-forum-is-discontinued/7</link>
+          <pubDate>Wed, 24 Jun 2020 18:02:05 +0000</pubDate>
+          <discourse:topicPinned>Yes</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">discourse.keleshev.com-topic-7</guid>
+          <source url="https://discourse.keleshev.com/t/compiling-to-assembly-from-scratch-forum-is-discontinued/7.rss">Compiling to Assembly from Scratch forum is *discontinued*</source>
+        </item>
+        <item>
+          <title>About the Site Feedback category</title>
+          <dc:creator><![CDATA[system]]></dc:creator>
+          <category>Site Feedback</category>
+          <description><![CDATA[
+            <p>Discussion about this site, its organization, how it works, and how we can improve it.</p>
+            <p><small>1 post - 1 participant</small></p>
+            <p><a href="https://discourse.keleshev.com/t/about-the-site-feedback-category/1">Read full topic</a></p>
+          ]]></description>
+          <link>https://discourse.keleshev.com/t/about-the-site-feedback-category/1</link>
+          <pubDate>Wed, 24 Jun 2020 18:01:59 +0000</pubDate>
+          <discourse:topicPinned>Yes</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">discourse.keleshev.com-topic-1</guid>
+          <source url="https://discourse.keleshev.com/t/about-the-site-feedback-category/1.rss">About the Site Feedback category</source>
+        </item>
+  </channel>
+</rss>

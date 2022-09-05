@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:discourse="http://www.discourse.org/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Compiling to Assembly from Scratch - Latest posts</title>
+    <link>https://discourse.keleshev.com</link>
+    <description>Latest posts</description>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[@jsegarra Jose]]></dc:creator>
+        <description><![CDATA[ <p>Hi,</p>
+<p>The two languages I have implemented:</p>
+<p>A JavaScript interpreter: <a href="https://code.google.com/archive/p/sejscript" rel="nofollow noopener">https://code.google.com/archive/p/sejscript</a> implemented in Delphi, using bytecode.</p>
+<p>A transpiler from NoSQL to SQL: <a href="http://jsegarra.net/nosqlonsql" rel="nofollow noopener">http://jsegarra.net/nosqlonsql</a> , implemented in C#.</p> ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/30</link>
+        <pubDate>Mon, 29 Nov 2021 13:15:53 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-345</guid>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[@jdh30 Jon Harrop]]></dc:creator>
+        <description><![CDATA[ <p>I forgot -O2 when compiling my C stdlib which actually makes a big difference: my compiler generates code that is 2.25x slower than ocamlopt on both Fibonacci and Hailstones benchmarks!</p>
+<p>Also worth noting that those benchmarks are basically the best case scenario for OCaml at this point.</p> ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/29</link>
+        <pubDate>Sat, 02 Oct 2021 13:13:25 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-331</guid>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[@jdh30 Jon Harrop]]></dc:creator>
+        <description><![CDATA[ <p>That’s the old one, yes. I haven’t made the new one public yet but I’d like to but, to be honest, I’m getting tired of all the tedium around VCS these days so I’m working on something better. Maybe I’ll put it up there. <img src="https://discourse.keleshev.com/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>Also, I’d like to bootstrap it…</p> ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/28</link>
+        <pubDate>Wed, 29 Sep 2021 11:26:20 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-330</guid>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[@keleshev]]></dc:creator>
+        <description><![CDATA[ <p><a class="mention" href="/u/jdh30">@jdh30</a> thanks for the interesting experience report! You original experiment is located in the following repo, right?</p>
+<p><a href="https://github.com/jdh30/growing_a_compiler">GitHub - jdh30/growing_a_compiler: Growing a compiler</a></p>
+<p>Is the new compiler available publicly?</p> ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/27</link>
+        <pubDate>Wed, 29 Sep 2021 11:17:46 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-329</guid>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[@jdh30 Jon Harrop]]></dc:creator>
+        <description><![CDATA[ <p>Having put quite some effort into my hobby compiler I have come to the conclusion that my approach was entirely upside-down and the result was poor performance. Specifically I was using a stack-based compiler to compile a relatively sophisticated language into a relatively wide variety of assembly instructions. This resulted in far too many loads and stores and performance closer to ocamlc’s interpreted bytecode than ocamlopt’s native code. Specifically, my generated code was 5.3x slower than ocamlopt’s! This left me disappointed and frustrated: why bother generating native code that runs as slowly as interpreted bytecode?! Then I had a revelation…</p>
+<p>Especially if you’re targeting the register-rich Arm architectures the initial focus should be restricted to:</p>
+<ul>
+<li>Int constants</li>
+<li>Calling conventions</li>
+<li>Tail call elimination</li>
+<li>Conditional execution</li>
+<li>Register allocations</li>
+</ul>
+<p>i.e. not arithmetic, loads, stores, strings, globals and so on.</p>
+<p>Why? Because you can implement <em>everything</em> with just this by relegating all non-essential functionality to a C stdlib. Arithmetic operations become functions. Loads and stores become functions. Even stdin and stdout are obtained via function calls. You can call any C function!</p>
+<p>Using this approach I have managed to implement a compiler for a <em>general purpose</em> programming language that generates just 7 different assembly instructions and the entire compiler is just 202 lines of OCaml code (+68 more for lexing and parsing) and the generated code is “only” 2.9x slower than ocamlopt.</p>
+<p>What do you think?</p>
+<p>I’ve written an echo program and Fibonacci function in my current source language. Next I’ll try implementing a more sophisticated front end that targets this minimal language.</p> ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/26</link>
+        <pubDate>Tue, 28 Sep 2021 22:35:52 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-328</guid>
+      </item>
+  </channel>
+</rss>

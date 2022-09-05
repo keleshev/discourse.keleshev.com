@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>What&#39;s the recommended way to implement the part-1?</title>
+    <link>https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118</link>
+    <description>Starting implementing the compiler(part 1).
+
+What&#39;s the recommended way to implement it?
+Follow the part 1 of the book and write those parsers and implementations out?
+
+Though i did peek into provided implementation of the `compiler.ts` I feel like copying it would be a poor way to really learn the details…
+
+Some notes:
+
+1. building Docker-ized environment since I rather not install all the tooling on the host machine and i&#39;m on OSX.
+2. 5.3 Interface: missing argument name: `src: Source` in 
+```
+interface Parser&lt;T&gt; {
+    parse(Source): ParseResult&lt;T&gt; | null;
+} 
+```</description>
+    
+    <lastBuildDate>Fri, 26 Mar 2021 04:40:03 +0000</lastBuildDate>
+    <category>Uncategorized</category>
+    <atom:link href="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>What&#39;s the recommended way to implement the part-1?</title>
+        <dc:creator><![CDATA[gmarik]]></dc:creator>
+        <description><![CDATA[
+            <blockquote>
+<p>Second, computer memory has several levels of caches, usually re- ferred to as L1–L3. And even if the fastest cache uses the same technology as registers, there could still be a cache miss. But such a cache miss can never happen in the case of registers.</p>
+</blockquote>
+<p>I’m not sure about the point being made in this paragraph… I’m assuming that it’s performance, but it’s quite indirect that it makes me wonder if it’s something else that I may not be getting…</p>
+<p>Would be nice to have it stated explicitly, ie like this:</p>
+<blockquote>
+<p>Second, performance: computer memory has several levels of caches, …</p>
+</blockquote>
+          <p><a href="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118/11</link>
+        <pubDate>Fri, 26 Mar 2021 04:40:03 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-118-11</guid>
+        <source url="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118.rss">What&#39;s the recommended way to implement the part-1?</source>
+      </item>
+      <item>
+        <title>What&#39;s the recommended way to implement the part-1?</title>
+        <dc:creator><![CDATA[gmarik]]></dc:creator>
+        <description><![CDATA[
+            <p>Once i’m done with Typescript version I’d like to implement it in Go and Ocaml…</p>
+          <p><a href="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118/10</link>
+        <pubDate>Thu, 11 Mar 2021 04:33:23 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-118-10</guid>
+        <source url="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118.rss">What&#39;s the recommended way to implement the part-1?</source>
+      </item>
+      <item>
+        <title>What&#39;s the recommended way to implement the part-1?</title>
+        <dc:creator><![CDATA[gmarik]]></dc:creator>
+        <description><![CDATA[
+            <blockquote>
+<p>However, in a module context, it is allowed.</p>
+</blockquote>
+<p>Fair enough, though, if one follows the book, there’s a token <code>NUMBER</code> which gets renamed to <code>INTEGER</code> in your <code>compiler.ts</code>. So I renamed corresponding number parser/token to <code>Integer</code> as well which also fixes the type “collision”.</p>
+<p>My repo <a href="https://github.com/gmarik/c2afs" rel="nofollow noopener">https://github.com/gmarik/c2afs</a></p>
+          <p><a href="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118/9</link>
+        <pubDate>Thu, 11 Mar 2021 04:29:32 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-118-9</guid>
+        <source url="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118.rss">What&#39;s the recommended way to implement the part-1?</source>
+      </item>
+      <item>
+        <title>What&#39;s the recommended way to implement the part-1?</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p>Regarding <code>Number</code>. You are allowed to use names like <code>Number</code> in a JavaScript <em>module</em> (which is in its own scope), but not in a global context. A source file is considered to be a module if it has <code>import</code> or <code>export</code> statements in it. That’s why the <code>part-1</code> compiler has a dummy <code>export {}</code> at the end:</p>
+<aside class="onebox githubblob">
+  <header class="source">
+      <a href="https://github.com/keleshev/compiling-to-assembly-from-scratch/blob/79883a59ef7a048f6d5c272412208c3322f8b5dc/part-1/compiler.ts#L940" target="_blank">github.com</a>
+  </header>
+  <article class="onebox-body">
+    <h4><a href="https://github.com/keleshev/compiling-to-assembly-from-scratch/blob/79883a59ef7a048f6d5c272412208c3322f8b5dc/part-1/compiler.ts#L940" target="_blank">keleshev/compiling-to-assembly-from-scratch/blob/79883a59ef7a048f6d5c272412208c3322f8b5dc/part-1/compiler.ts#L940</a></h4>
+<pre class="onebox"><code class="lang-ts"><ol class="start lines" start="930" style="counter-reset: li-counter 929 ;">
+<li>      }</li>
+<li>      return result;</li>
+<li>    }</li>
+<li>  `;</li>
+<li>
+</li><li>  let ast = parser.parseStringToCompletion(source);</li>
+<li>
+</li><li>  ast.emit(new Environment());</li>
+<li>});</li>
+<li>
+</li><li class="selected">export {}</li>
+</ol></code></pre>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>Without it, the source would be considered non-module (and thus, global scope), and <code>Number</code> would clash with the built-in <code>Number</code> class. However, in a module context, it is allowed.</p>
+<p>I’m making a note to myself to mention this one way or another in the book. I was hoping that it is now so common to use JS modules that this would never show up, but it’s not the case.</p>
+          <p><a href="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118/8</link>
+        <pubDate>Wed, 10 Mar 2021 20:12:08 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-118-8</guid>
+        <source url="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118.rss">What&#39;s the recommended way to implement the part-1?</source>
+      </item>
+      <item>
+        <title>What&#39;s the recommended way to implement the part-1?</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="/u/gmarik">@gmarik</a> do you have a link to your repo? It would be enlightening to have a look.</p>
+          <p><a href="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118/7</link>
+        <pubDate>Wed, 10 Mar 2021 12:53:32 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-118-7</guid>
+        <source url="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118.rss">What&#39;s the recommended way to implement the part-1?</source>
+      </item>
+      <item>
+        <title>What&#39;s the recommended way to implement the part-1?</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="/u/gmarik">@gmarik</a> appreciated!</p>
+<p>Yes, combinators are a bit special. It kind of takes time to get used to this way of writing code. In many ways, it is similar to writing async code, which also takes time to get into.</p>
+<p>I tried several approaches with parsing. Recursive descent parser could be simpler, but requires a lot of code (by volume), so really hard to fit in a small book. And my goal was to include all the necessary code for part-1.</p>
+<p>The OCaml version that I put in the <a href="https://github.com/keleshev/compiling-to-assembly-from-scratch/tree/79883a59ef7a048f6d5c272412208c3322f8b5dc/contrib/ocaml">repo</a> does not have a parser, but I have similar parser combinators in OCaml in another project:</p>
+<aside class="onebox githubblob">
+  <header class="source">
+      <a href="https://github.com/keleshev/new.keleshev.com/blob/169f5828c9939fb18adb25869afdd5df30434cec/parsec/src/parsec.ml" target="_blank">github.com</a>
+  </header>
+  <article class="onebox-body">
+    <h4><a href="https://github.com/keleshev/new.keleshev.com/blob/169f5828c9939fb18adb25869afdd5df30434cec/parsec/src/parsec.ml" target="_blank">keleshev/new.keleshev.com/blob/169f5828c9939fb18adb25869afdd5df30434cec/parsec/src/parsec.ml</a></h4>
+<pre><code class="lang-ml">open Shim
+
+module Source = struct
+  module Core : sig
+    type t = private {index: int; string: string}
+    val of_string : string -&gt; t
+    val next : t -&gt; (char * t) option
+  end = struct
+    type t = {index: int; string: string}
+
+    let invariants {index; string} =
+      index &gt;= 0 &amp;&amp; index &lt;= String.length string
+
+    let create_exn index string =
+      let source = {index; string} in
+      assert (invariants source);
+      source
+
+    let of_string =
+      create_exn 0 (* exn: index of 0 is valid for all strings *)
+</code></pre>
+
+  This file has been truncated. <a href="https://github.com/keleshev/new.keleshev.com/blob/169f5828c9939fb18adb25869afdd5df30434cec/parsec/src/parsec.ml" target="_blank">show original</a>
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+          <p><a href="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118/6</link>
+        <pubDate>Wed, 10 Mar 2021 12:40:54 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-118-6</guid>
+        <source url="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118.rss">What&#39;s the recommended way to implement the part-1?</source>
+      </item>
+      <item>
+        <title>What&#39;s the recommended way to implement the part-1?</title>
+        <dc:creator><![CDATA[gmarik]]></dc:creator>
+        <description><![CDATA[
+            <p>You likely know about these, still i’m posting here for the record</p>
+<ol>
+<li>
+<code>let ASSIGN = token(/=/y).map((_) =&gt; Assign);</code> is missing in the book</li>
+<li>
+<code>Number</code> is a javascript type so there’s collision a with <code>Number:AST</code>
+</li>
+<li>
+<code>equals(other: AST)</code> miss returned type <code>equals(other: AST):boolean</code>
+</li>
+<li>
+<code>interface AST {  equals(AST): boolean;}</code> missing the arg name</li>
+</ol>
+<p>Finished parser.<br>
+Overall impression: combinators are quite hard to “combine” due to nested/callback-like structure and it takes time to really have the intuition on when to use which(like <code>bind</code> vs <code>map</code>) etc…</p>
+<p>I’m curious to compare it to Ocaml version to see if it language makes a difference.</p>
+          <p><a href="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118/5</link>
+        <pubDate>Wed, 10 Mar 2021 05:31:18 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-118-5</guid>
+        <source url="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118.rss">What&#39;s the recommended way to implement the part-1?</source>
+      </item>
+      <item>
+        <title>What&#39;s the recommended way to implement the part-1?</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for posting these! I made the mistake of using the TypeScript compiler with the default settings when no <code>tsconfig.json</code> file is found. These settings are extremely relaxed, and the warnings above do not show up. I have fixed the issues in the repo but not in the book yet (I will be working on that). So, if in doubt, see the code in the repo:</p>
+<aside class="onebox whitelistedgeneric">
+  <header class="source">
+      <img src="https://github.githubassets.com/favicons/favicon.svg" class="site-icon" width="32" height="32">
+      <a href="https://github.com/keleshev/compiling-to-assembly-from-scratch" target="_blank">GitHub</a>
+  </header>
+  <article class="onebox-body">
+    <img src="https://discourse.keleshev.com/uploads/default/original/1X/07193aa55d468b792f4c91db7322ad4a9582bf90.jpeg" class="thumbnail onebox-avatar" width="400" height="400">
+
+<h3><a href="https://github.com/keleshev/compiling-to-assembly-from-scratch" target="_blank">keleshev/compiling-to-assembly-from-scratch</a></h3>
+
+<p>Source code for the book Compiling to Assembly from Scratch https://keleshev.com/compiling-to-assembly-from-scratch-the-book - keleshev/compiling-to-assembly-from-scratch</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>Fortunately, there are not many places with these kinds of problems.</p>
+<p>I had some trouble setting the toolchain on OSX, so using Docker is preferred if you can. On OSX, neither brew nor MacPorts has the cross-compilation tools packaged, so the only way seems to be built from source. So using some Linux environment like Docker or WSL on Windows is much easier.</p>
+<p>The new ARM-based macs should run the 32-bit ARM binaries natively, but assembling them might be tricky. So far, I haven’t got my hands on one of these systems.</p>
+<p>Looking forward to seeing how your compiler unfolds!</p>
+          <p><a href="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118/4</link>
+        <pubDate>Thu, 04 Mar 2021 19:15:17 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-118-4</guid>
+        <source url="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118.rss">What&#39;s the recommended way to implement the part-1?</source>
+      </item>
+      <item>
+        <title>What&#39;s the recommended way to implement the part-1?</title>
+        <dc:creator><![CDATA[gmarik]]></dc:creator>
+        <description><![CDATA[
+            <p>More compilation errors:</p>
+<pre><code class="lang-auto">src/compiler.ts:240:14 - error TS7006: Parameter 'pattern' implicitly has an 'any' type.
+
+240 let token = (pattern) =&gt; regexp(pattern).bind((value) =&gt; ignored.and(constant(value)));
+                 ~~~~~~~
+</code></pre>
+<p>fixed with</p>
+<pre><code class="lang-auto">let token = (pattern:RegExp) =&gt; regexp(pattern).bind((value) =&gt; ignored.and(constant(value)));
+
+</code></pre>
+          <p><a href="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118/3</link>
+        <pubDate>Thu, 04 Mar 2021 03:48:22 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-118-3</guid>
+        <source url="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118.rss">What&#39;s the recommended way to implement the part-1?</source>
+      </item>
+      <item>
+        <title>What&#39;s the recommended way to implement the part-1?</title>
+        <dc:creator><![CDATA[gmarik]]></dc:creator>
+        <description><![CDATA[
+            <p>maybe combinator from the book Ch 5.13 doesn’t compile:</p>
+<pre><code class="lang-auto">static maybe&lt;U&gt;( parser: Parser&lt;U&gt;): Parser&lt;U | null&gt; {
+   return parser.or(constant(null));
+}
+</code></pre>
+<p>Has to be</p>
+<pre><code class="lang-auto">static maybe&lt;U&gt;( parser: Parser&lt;U | null&gt;): Parser&lt;U | null&gt; {
+   return parser.or(constant(null));
+}
+</code></pre>
+<p>One example where generics makes things quite confusing… <img src="https://discourse.keleshev.com/images/emoji/twitter/confused.png?v=9" title=":confused:" class="emoji" alt=":confused:"></p>
+          <p><a href="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118/2</link>
+        <pubDate>Tue, 02 Mar 2021 16:55:27 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-118-2</guid>
+        <source url="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118.rss">What&#39;s the recommended way to implement the part-1?</source>
+      </item>
+      <item>
+        <title>What&#39;s the recommended way to implement the part-1?</title>
+        <dc:creator><![CDATA[gmarik]]></dc:creator>
+        <description><![CDATA[
+            <p>Starting implementing the compiler(part 1).</p>
+<p>What’s the recommended way to implement it?<br>
+Follow the part 1 of the book and write those parsers and implementations out?</p>
+<p>Though i did peek into provided implementation of the <code>compiler.ts</code> I feel like copying it would be a poor way to really learn the details…</p>
+<p>Some notes:</p>
+<ol>
+<li>building Docker-ized environment since I rather not install all the tooling on the host machine and i’m on OSX.</li>
+<li>5.3 Interface: missing argument name: <code>src: Source</code> in</li>
+</ol>
+<pre><code class="lang-auto">interface Parser&lt;T&gt; {
+    parse(Source): ParseResult&lt;T&gt; | null;
+} 
+</code></pre>
+          <p><a href="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118/1</link>
+        <pubDate>Fri, 26 Feb 2021 17:11:49 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-118-1</guid>
+        <source url="https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118.rss">What&#39;s the recommended way to implement the part-1?</source>
+      </item>
+  </channel>
+</rss>

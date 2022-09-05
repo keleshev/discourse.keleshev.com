@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Final Book section missing?</title>
+    <link>https://discourse.keleshev.com/t/final-book-section-missing/78</link>
+    <description>Hi Vladimir,
+
+I pulled the latest version of the book bcause the final version came out. I went looking at the table of contents and found one of the sections missing. The section was labelled as &quot;Optimizations&quot; (In the last pdf - it was listed under Part 2 as section 9).
+
+I also checked the github tree and found that there at least one thing that would have been part of that section:
+* Constant Folding
+
+I wondered if you just forgot to put that in - or if this was on purpose as a &quot;exercise&quot; for people reading the book.</description>
+    
+    <lastBuildDate>Wed, 30 Sep 2020 02:16:45 +0000</lastBuildDate>
+    <category>Uncategorized</category>
+    <atom:link href="https://discourse.keleshev.com/t/final-book-section-missing/78.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Final Book section missing?</title>
+        <dc:creator><![CDATA[ddlutz]]></dc:creator>
+        <description><![CDATA[
+            <p>10 more topics… So a second book?!</p>
+          <p><a href="https://discourse.keleshev.com/t/final-book-section-missing/78/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/final-book-section-missing/78/3</link>
+        <pubDate>Wed, 30 Sep 2020 02:16:45 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-78-3</guid>
+        <source url="https://discourse.keleshev.com/t/final-book-section-missing/78.rss">Final Book section missing?</source>
+      </item>
+      <item>
+        <title>Final Book section missing?</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p>I decided to cut the scope a little to fulfil the promise of getting it done before September ends. There are 10 more topics I wish I could cover but I would never release the book this way. However, if this particular topic has a lot of interest—I will write one more chapter and send an update.</p>
+          <p><a href="https://discourse.keleshev.com/t/final-book-section-missing/78/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/final-book-section-missing/78/2</link>
+        <pubDate>Mon, 28 Sep 2020 09:17:53 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-78-2</guid>
+        <source url="https://discourse.keleshev.com/t/final-book-section-missing/78.rss">Final Book section missing?</source>
+      </item>
+      <item>
+        <title>Final Book section missing?</title>
+        <dc:creator><![CDATA[nerdboy]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi Vladimir,</p>
+<p>I pulled the latest version of the book bcause the final version came out. I went looking at the table of contents and found one of the sections missing. The section was labelled as “Optimizations” (In the last pdf - it was listed under Part 2 as section 9).</p>
+<p>I also checked the github tree and found that there at least one thing that would have been part of that section:</p>
+<ul>
+<li>Constant Folding</li>
+</ul>
+<p>I wondered if you just forgot to put that in - or if this was on purpose as a “exercise” for people reading the book.</p>
+          <p><a href="https://discourse.keleshev.com/t/final-book-section-missing/78/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/final-book-section-missing/78/1</link>
+        <pubDate>Sun, 27 Sep 2020 22:31:52 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-78-1</guid>
+        <source url="https://discourse.keleshev.com/t/final-book-section-missing/78.rss">Final Book section missing?</source>
+      </item>
+  </channel>
+</rss>

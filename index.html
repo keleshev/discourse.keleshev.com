@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Compiling to Assembly from Scratch - Compiling to Assembly community</title>
+    <meta name="description" content="A place to discuss the book and compilers, in general.">
+    <meta name="generator" content="Discourse 2.6.0.beta1 - https://github.com/discourse/discourse version b9174c8e8ab7e0a5fdb782cd8625d26475ce777e">
+<link rel="icon" type="image/png" href="uploads/default/optimized/1X/32d34deafc2d620b3f4b218b560d5d5f544183dd_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="uploads/default/optimized/1X/32d34deafc2d620b3f4b218b560d5d5f544183dd_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="index.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://discourse.keleshev.com","potentialAction":{"@type":"SearchAction","target":"https://discourse.keleshev.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch.xml" title="Compiling to Assembly from Scratch Search">
+
+      <link href="stylesheets/desktop_2858fe1a7e1c2fdbfeb3eae8f9a8f12e081caaf6.css%3F__ws=discourse.keleshev.com.css" media="all" rel="stylesheet" data-target="desktop" data-theme-id="2"/>
+      <link href="stylesheets/desktop_theme_2_223f7359fb9f6a7678616c181dc93a609ee33714.css%3F__ws=discourse.keleshev.com.css" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2"/>
+    
+    
+        <link rel="next" href="latest%3Fno_definitions=true&amp;page=1.html">
+    <link rel="alternate" type="application/rss+xml" title="Latest posts" href="posts.rss" />
+    <link rel="alternate" type="application/rss+xml" title="Latest topics" href="latest.rss" />
+    <meta property="og:site_name" content="Compiling to Assembly from Scratch" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://discourse.keleshev.com/uploads/default/original/1X/32d34deafc2d620b3f4b218b560d5d5f544183dd.png" />
+<meta property="og:image" content="https://discourse.keleshev.com/uploads/default/original/1X/32d34deafc2d620b3f4b218b560d5d5f544183dd.png" />
+<meta property="og:url" content="https://discourse.keleshev.com/" />
+<meta name="twitter:url" content="https://discourse.keleshev.com/" />
+<meta property="og:title" content="Compiling to Assembly from Scratch" />
+<meta name="twitter:title" content="Compiling to Assembly from Scratch" />
+<meta property="og:description" content="A place to discuss the book and compilers, in general." />
+<meta name="twitter:description" content="A place to discuss the book and compilers, in general." />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+      <a href="index.html">
+          <img src="uploads/default/original/1X/7ed43fb87ad00ed48afdea6909c7967841dd7158.jpeg" alt="Compiling to Assembly from Scratch" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+      
+
+
+
+
+<div itemscope itemtype='http://schema.org/ItemList'>
+  <meta itemprop='itemListOrder' content='http://schema.org/ItemListOrderDescending'>
+
+  <table class='topic-list'>
+
+    <thead>
+      <tr>
+        <th>Topic</th>
+        <th></th>
+        <th class="replies">Replies</th>
+        <th class="views">Views</th>
+        <th>Activity</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        <tr class="topic-list-item">
+          <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+            <meta itemprop='name' content='Compiling to Assembly from Scratch forum is *discontinued*'>
+            <meta itemprop='url' content='https://discourse.keleshev.com/t/compiling-to-assembly-from-scratch-forum-is-discontinued/7'>
+            <meta itemprop='position' content='1'>
+            <span class="link-top-line">
+              <a href='t/compiling-to-assembly-from-scratch-forum-is-discontinued/7.html' class='title raw-link raw-topic-link'>Compiling to Assembly from Scratch forum is *discontinued*</a>
+            </span>
+            <div class="link-bottom-line">
+                <div class="discourse-tags">
+                </div>
+            </div>
+          </td>
+          <td class='posters'>
+                <a href="https://discourse.keleshev.com/u/system" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/system/25/1_2.png" class="avatar" title='system - Original Poster, Most Recent Poster' aria-label='system - Original Poster, Most Recent Poster'>
+                </a>
+          </td>
+          <td class="replies">
+            <span class='posts' title='posts'>1</span>
+          </td>
+          <td class="views">
+            <span class='views' title='<span class="translation_missing" title="translation missing: en_US.views">Views</span>'>51</span>
+          </td>
+          <td>
+            June 24, 2020
+          </td>
+        </tr>
+        <tr class="topic-list-item">
+          <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+            <meta itemprop='name' content='Tell us about your compiler!'>
+            <meta itemprop='url' content='https://discourse.keleshev.com/t/tell-us-about-your-compiler/11'>
+            <meta itemprop='position' content='2'>
+            <span class="link-top-line">
+              <a href='t/tell-us-about-your-compiler/11.html' class='title raw-link raw-topic-link'>Tell us about your compiler!</a>
+            </span>
+            <div class="link-bottom-line">
+                <div class="discourse-tags">
+                </div>
+            </div>
+          </td>
+          <td class='posters'>
+                <a href="https://discourse.keleshev.com/u/keleshev" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/keleshev/25/3_2.png" class="avatar" title='keleshev - Original Poster' aria-label='keleshev - Original Poster'>
+                </a>
+                <a href="https://discourse.keleshev.com/u/Apos" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/apos/25/12_2.png" class="avatar" title='Apos - Frequent Poster' aria-label='Apos - Frequent Poster'>
+                </a>
+                <a href="https://discourse.keleshev.com/u/nerdboy" class="">
+                  <img width="25" height="25" src="letter_avatar_proxy/v4/letter/n/d26b3c/25.png" class="avatar" title='nerdboy - Frequent Poster' aria-label='nerdboy - Frequent Poster'>
+                </a>
+                <a href="https://discourse.keleshev.com/u/mukadr" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/mukadr/25/26_2.png" class="avatar" title='mukadr - Frequent Poster' aria-label='mukadr - Frequent Poster'>
+                </a>
+                <a href="https://discourse.keleshev.com/u/jsegarra" class="">
+                  <img width="25" height="25" src="letter_avatar_proxy/v4/letter/j/df788c/25.png" class="avatar" title='jsegarra - Most Recent Poster' aria-label='jsegarra - Most Recent Poster'>
+                </a>
+          </td>
+          <td class="replies">
+            <span class='posts' title='posts'>30</span>
+          </td>
+          <td class="views">
+            <span class='views' title='<span class="translation_missing" title="translation missing: en_US.views">Views</span>'>218</span>
+          </td>
+          <td>
+            November 29, 2021
+          </td>
+        </tr>
+        <tr class="topic-list-item">
+          <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+            <meta itemprop='name' content='What&#39;s the recommended way to implement the part-1?'>
+            <meta itemprop='url' content='https://discourse.keleshev.com/t/whats-the-recommended-way-to-implement-the-part-1/118'>
+            <meta itemprop='position' content='3'>
+            <span class="link-top-line">
+              <a href='t/whats-the-recommended-way-to-implement-the-part-1/118.html' class='title raw-link raw-topic-link'>What&#39;s the recommended way to implement the part-1?</a>
+            </span>
+            <div class="link-bottom-line">
+                <div class="discourse-tags">
+                </div>
+            </div>
+          </td>
+          <td class='posters'>
+                <a href="https://discourse.keleshev.com/u/gmarik" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/gmarik/25/8_2.png" class="avatar" title='gmarik - Original Poster, Most Recent Poster' aria-label='gmarik - Original Poster, Most Recent Poster'>
+                </a>
+                <a href="https://discourse.keleshev.com/u/keleshev" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/keleshev/25/3_2.png" class="avatar" title='keleshev - Frequent Poster' aria-label='keleshev - Frequent Poster'>
+                </a>
+          </td>
+          <td class="replies">
+            <span class='posts' title='posts'>11</span>
+          </td>
+          <td class="views">
+            <span class='views' title='<span class="translation_missing" title="translation missing: en_US.views">Views</span>'>63</span>
+          </td>
+          <td>
+            March 26, 2021
+          </td>
+        </tr>
+        <tr class="topic-list-item">
+          <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+            <meta itemprop='name' content='Regex kleene star question'>
+            <meta itemprop='url' content='https://discourse.keleshev.com/t/regex-kleene-star-question/115'>
+            <meta itemprop='position' content='4'>
+            <span class="link-top-line">
+              <a href='t/regex-kleene-star-question/115.html' class='title raw-link raw-topic-link'>Regex kleene star question</a>
+            </span>
+            <div class="link-bottom-line">
+                <div class="discourse-tags">
+                </div>
+            </div>
+          </td>
+          <td class='posters'>
+                <a href="https://discourse.keleshev.com/u/gmarik" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/gmarik/25/8_2.png" class="avatar" title='gmarik - Original Poster, Most Recent Poster' aria-label='gmarik - Original Poster, Most Recent Poster'>
+                </a>
+                <a href="https://discourse.keleshev.com/u/keleshev" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/keleshev/25/3_2.png" class="avatar" title='keleshev - Frequent Poster' aria-label='keleshev - Frequent Poster'>
+                </a>
+          </td>
+          <td class="replies">
+            <span class='posts' title='posts'>3</span>
+          </td>
+          <td class="views">
+            <span class='views' title='<span class="translation_missing" title="translation missing: en_US.views">Views</span>'>20</span>
+          </td>
+          <td>
+            February 24, 2021
+          </td>
+        </tr>
+        <tr class="topic-list-item">
+          <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+            <meta itemprop='name' content='Godbolt looks like not support running assembly for now'>
+            <meta itemprop='url' content='https://discourse.keleshev.com/t/godbolt-looks-like-not-support-running-assembly-for-now/113'>
+            <meta itemprop='position' content='5'>
+            <span class="link-top-line">
+              <a href='t/godbolt-looks-like-not-support-running-assembly-for-now/113.html' class='title raw-link raw-topic-link'>Godbolt looks like not support running assembly for now</a>
+            </span>
+            <div class="link-bottom-line">
+                <div class="discourse-tags">
+                </div>
+            </div>
+          </td>
+          <td class='posters'>
+                <a href="https://discourse.keleshev.com/u/gengjiawen" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/gengjiawen/25/47_2.png" class="avatar" title='gengjiawen - Original Poster, Most Recent Poster' aria-label='gengjiawen - Original Poster, Most Recent Poster'>
+                </a>
+          </td>
+          <td class="replies">
+            <span class='posts' title='posts'>1</span>
+          </td>
+          <td class="views">
+            <span class='views' title='<span class="translation_missing" title="translation missing: en_US.views">Views</span>'>26</span>
+          </td>
+          <td>
+            January 13, 2021
+          </td>
+        </tr>
+        <tr class="topic-list-item">
+          <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+            <meta itemprop='name' content='Expression parser understand'>
+            <meta itemprop='url' content='https://discourse.keleshev.com/t/expression-parser-understand/110'>
+              <meta itemprop='image' content='https://discourse.keleshev.com/uploads/default/optimized/1X/b572bfe53c97260c6fff2ec870f7fc3c18263ebe_2_1024x523.png'>
+            <meta itemprop='position' content='6'>
+            <span class="link-top-line">
+              <a href='t/expression-parser-understand/110.html' class='title raw-link raw-topic-link'>Expression parser understand</a>
+            </span>
+            <div class="link-bottom-line">
+                <div class="discourse-tags">
+                </div>
+            </div>
+          </td>
+          <td class='posters'>
+                <a href="https://discourse.keleshev.com/u/gengjiawen" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/gengjiawen/25/47_2.png" class="avatar" title='gengjiawen - Original Poster' aria-label='gengjiawen - Original Poster'>
+                </a>
+                <a href="https://discourse.keleshev.com/u/beefok" class="">
+                  <img width="25" height="25" src="letter_avatar_proxy/v4/letter/b/c77e96/25.png" class="avatar" title='beefok - Frequent Poster' aria-label='beefok - Frequent Poster'>
+                </a>
+                <a href="https://discourse.keleshev.com/u/keleshev" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/keleshev/25/3_2.png" class="avatar" title='keleshev - Most Recent Poster' aria-label='keleshev - Most Recent Poster'>
+                </a>
+          </td>
+          <td class="replies">
+            <span class='posts' title='posts'>12</span>
+          </td>
+          <td class="views">
+            <span class='views' title='<span class="translation_missing" title="translation missing: en_US.views">Views</span>'>39</span>
+          </td>
+          <td>
+            January 13, 2021
+          </td>
+        </tr>
+        <tr class="topic-list-item">
+          <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+            <meta itemprop='name' content='Code repository reorganization'>
+            <meta itemprop='url' content='https://discourse.keleshev.com/t/code-repository-reorganization/112'>
+            <meta itemprop='position' content='7'>
+            <span class="link-top-line">
+              <a href='t/code-repository-reorganization/112.html' class='title raw-link raw-topic-link'>Code repository reorganization</a>
+            </span>
+            <div class="link-bottom-line">
+                <div class="discourse-tags">
+                </div>
+            </div>
+          </td>
+          <td class='posters'>
+                <a href="https://discourse.keleshev.com/u/keleshev" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/keleshev/25/3_2.png" class="avatar" title='keleshev - Original Poster' aria-label='keleshev - Original Poster'>
+                </a>
+                <a href="https://discourse.keleshev.com/u/gengjiawen" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/gengjiawen/25/47_2.png" class="avatar" title='gengjiawen - Most Recent Poster' aria-label='gengjiawen - Most Recent Poster'>
+                </a>
+          </td>
+          <td class="replies">
+            <span class='posts' title='posts'>2</span>
+          </td>
+          <td class="views">
+            <span class='views' title='<span class="translation_missing" title="translation missing: en_US.views">Views</span>'>14</span>
+          </td>
+          <td>
+            January 13, 2021
+          </td>
+        </tr>
+        <tr class="topic-list-item">
+          <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+            <meta itemprop='name' content='Thank you page still mentions pre-order'>
+            <meta itemprop='url' content='https://discourse.keleshev.com/t/thank-you-page-still-mentions-pre-order/84'>
+            <meta itemprop='position' content='8'>
+            <span class="link-top-line">
+              <a href='t/thank-you-page-still-mentions-pre-order/84.html' class='title raw-link raw-topic-link'>Thank you page still mentions pre-order</a>
+            </span>
+            <div class="link-bottom-line">
+                <div class="discourse-tags">
+                </div>
+            </div>
+          </td>
+          <td class='posters'>
+                <a href="https://discourse.keleshev.com/u/JoshMcguigan" class="">
+                  <img width="25" height="25" src="letter_avatar_proxy/v4/letter/j/0ea827/25.png" class="avatar" title='JoshMcguigan - Original Poster' aria-label='JoshMcguigan - Original Poster'>
+                </a>
+                <a href="https://discourse.keleshev.com/u/keleshev" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/keleshev/25/3_2.png" class="avatar" title='keleshev - Most Recent Poster' aria-label='keleshev - Most Recent Poster'>
+                </a>
+          </td>
+          <td class="replies">
+            <span class='posts' title='posts'>2</span>
+          </td>
+          <td class="views">
+            <span class='views' title='<span class="translation_missing" title="translation missing: en_US.views">Views</span>'>31</span>
+          </td>
+          <td>
+            October 8, 2020
+          </td>
+        </tr>
+        <tr class="topic-list-item">
+          <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+            <meta itemprop='name' content='Final Book section missing?'>
+            <meta itemprop='url' content='https://discourse.keleshev.com/t/final-book-section-missing/78'>
+            <meta itemprop='position' content='9'>
+            <span class="link-top-line">
+              <a href='t/final-book-section-missing/78.html' class='title raw-link raw-topic-link'>Final Book section missing?</a>
+            </span>
+            <div class="link-bottom-line">
+                <div class="discourse-tags">
+                </div>
+            </div>
+          </td>
+          <td class='posters'>
+                <a href="https://discourse.keleshev.com/u/nerdboy" class="">
+                  <img width="25" height="25" src="letter_avatar_proxy/v4/letter/n/d26b3c/25.png" class="avatar" title='nerdboy - Original Poster' aria-label='nerdboy - Original Poster'>
+                </a>
+                <a href="https://discourse.keleshev.com/u/keleshev" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/keleshev/25/3_2.png" class="avatar" title='keleshev - Frequent Poster' aria-label='keleshev - Frequent Poster'>
+                </a>
+                <a href="https://discourse.keleshev.com/u/ddlutz" class="">
+                  <img width="25" height="25" src="letter_avatar_proxy/v4/letter/d/d9b06d/25.png" class="avatar" title='ddlutz - Most Recent Poster' aria-label='ddlutz - Most Recent Poster'>
+                </a>
+          </td>
+          <td class="replies">
+            <span class='posts' title='posts'>3</span>
+          </td>
+          <td class="views">
+            <span class='views' title='<span class="translation_missing" title="translation missing: en_US.views">Views</span>'>57</span>
+          </td>
+          <td>
+            September 30, 2020
+          </td>
+        </tr>
+        <tr class="topic-list-item">
+          <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+            <meta itemprop='name' content='Error sending book to Kindle'>
+            <meta itemprop='url' content='https://discourse.keleshev.com/t/error-sending-book-to-kindle/70'>
+            <meta itemprop='position' content='10'>
+            <span class="link-top-line">
+              <a href='t/error-sending-book-to-kindle/70.html' class='title raw-link raw-topic-link'>Error sending book to Kindle</a>
+            </span>
+            <div class="link-bottom-line">
+                <div class="discourse-tags">
+                </div>
+            </div>
+          </td>
+          <td class='posters'>
+                <a href="https://discourse.keleshev.com/u/evalparse" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/evalparse/25/32_2.png" class="avatar" title='evalparse - Original Poster' aria-label='evalparse - Original Poster'>
+                </a>
+                <a href="https://discourse.keleshev.com/u/keleshev" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/keleshev/25/3_2.png" class="avatar" title='keleshev - Most Recent Poster' aria-label='keleshev - Most Recent Poster'>
+                </a>
+          </td>
+          <td class="replies">
+            <span class='posts' title='posts'>3</span>
+          </td>
+          <td class="views">
+            <span class='views' title='<span class="translation_missing" title="translation missing: en_US.views">Views</span>'>27</span>
+          </td>
+          <td>
+            September 8, 2020
+          </td>
+        </tr>
+        <tr class="topic-list-item">
+          <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+            <meta itemprop='name' content='Part II: Source code is here'>
+            <meta itemprop='url' content='https://discourse.keleshev.com/t/part-ii-source-code-is-here/68'>
+            <meta itemprop='position' content='11'>
+            <span class="link-top-line">
+              <a href='t/part-ii-source-code-is-here/68.html' class='title raw-link raw-topic-link'>Part II: Source code is here</a>
+            </span>
+            <div class="link-bottom-line">
+                <div class="discourse-tags">
+                </div>
+            </div>
+          </td>
+          <td class='posters'>
+                <a href="https://discourse.keleshev.com/u/keleshev" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/keleshev/25/3_2.png" class="avatar" title='keleshev - Original Poster, Most Recent Poster' aria-label='keleshev - Original Poster, Most Recent Poster'>
+                </a>
+          </td>
+          <td class="replies">
+            <span class='posts' title='posts'>1</span>
+          </td>
+          <td class="views">
+            <span class='views' title='<span class="translation_missing" title="translation missing: en_US.views">Views</span>'>42</span>
+          </td>
+          <td>
+            September 6, 2020
+          </td>
+        </tr>
+        <tr class="topic-list-item">
+          <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+            <meta itemprop='name' content='What do you think about the draft?'>
+            <meta itemprop='url' content='https://discourse.keleshev.com/t/what-do-you-think-about-the-draft/12'>
+            <meta itemprop='position' content='12'>
+            <span class="link-top-line">
+              <a href='t/what-do-you-think-about-the-draft/12.html' class='title raw-link raw-topic-link'>What do you think about the draft?</a>
+            </span>
+            <div class="link-bottom-line">
+                <div class="discourse-tags">
+                </div>
+            </div>
+          </td>
+          <td class='posters'>
+                <a href="https://discourse.keleshev.com/u/keleshev" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/keleshev/25/3_2.png" class="avatar" title='keleshev - Original Poster, Most Recent Poster' aria-label='keleshev - Original Poster, Most Recent Poster'>
+                </a>
+                <a href="https://discourse.keleshev.com/u/CJlambda" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/cjlambda/25/21_2.png" class="avatar" title='CJlambda - Frequent Poster' aria-label='CJlambda - Frequent Poster'>
+                </a>
+                <a href="https://discourse.keleshev.com/u/gmarik" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/gmarik/25/8_2.png" class="avatar" title='gmarik - Frequent Poster' aria-label='gmarik - Frequent Poster'>
+                </a>
+                <a href="https://discourse.keleshev.com/u/Apos" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/apos/25/12_2.png" class="avatar" title='Apos - Frequent Poster' aria-label='Apos - Frequent Poster'>
+                </a>
+                <a href="https://discourse.keleshev.com/u/jdh30" class="">
+                  <img width="25" height="25" src="letter_avatar_proxy/v4/letter/j/a5b964/25.png" class="avatar" title='jdh30 - Frequent Poster' aria-label='jdh30 - Frequent Poster'>
+                </a>
+          </td>
+          <td class="replies">
+            <span class='posts' title='posts'>52</span>
+          </td>
+          <td class="views">
+            <span class='views' title='<span class="translation_missing" title="translation missing: en_US.views">Views</span>'>187</span>
+          </td>
+          <td>
+            August 16, 2020
+          </td>
+        </tr>
+        <tr class="topic-list-item">
+          <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+            <meta itemprop='name' content='Language description thoughts'>
+            <meta itemprop='url' content='https://discourse.keleshev.com/t/language-description-thoughts/53'>
+            <meta itemprop='position' content='13'>
+            <span class="link-top-line">
+              <a href='t/language-description-thoughts/53.html' class='title raw-link raw-topic-link'>Language description thoughts</a>
+            </span>
+            <div class="link-bottom-line">
+                <div class="discourse-tags">
+                </div>
+            </div>
+          </td>
+          <td class='posters'>
+                <a href="https://discourse.keleshev.com/u/nerdboy" class="">
+                  <img width="25" height="25" src="letter_avatar_proxy/v4/letter/n/d26b3c/25.png" class="avatar" title='nerdboy - Original Poster, Most Recent Poster' aria-label='nerdboy - Original Poster, Most Recent Poster'>
+                </a>
+                <a href="https://discourse.keleshev.com/u/keleshev" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/keleshev/25/3_2.png" class="avatar" title='keleshev - Frequent Poster' aria-label='keleshev - Frequent Poster'>
+                </a>
+          </td>
+          <td class="replies">
+            <span class='posts' title='posts'>4</span>
+          </td>
+          <td class="views">
+            <span class='views' title='<span class="translation_missing" title="translation missing: en_US.views">Views</span>'>68</span>
+          </td>
+          <td>
+            August 5, 2020
+          </td>
+        </tr>
+        <tr class="topic-list-item">
+          <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+            <meta itemprop='name' content='FASMARM instead of GAS?'>
+            <meta itemprop='url' content='https://discourse.keleshev.com/t/fasmarm-instead-of-gas/39'>
+            <meta itemprop='position' content='14'>
+            <span class="link-top-line">
+              <a href='t/fasmarm-instead-of-gas/39.html' class='title raw-link raw-topic-link'>FASMARM instead of GAS?</a>
+            </span>
+            <div class="link-bottom-line">
+                <div class="discourse-tags">
+                </div>
+            </div>
+          </td>
+          <td class='posters'>
+                <a href="https://discourse.keleshev.com/u/Apos" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/apos/25/12_2.png" class="avatar" title='Apos - Original Poster, Most Recent Poster' aria-label='Apos - Original Poster, Most Recent Poster'>
+                </a>
+                <a href="https://discourse.keleshev.com/u/keleshev" class="">
+                  <img width="25" height="25" src="user_avatar/discourse.keleshev.com/keleshev/25/3_2.png" class="avatar" title='keleshev - Frequent Poster' aria-label='keleshev - Frequent Poster'>
+                </a>
+          </td>
+          <td class="replies">
+            <span class='posts' title='posts'>3</span>
+          </td>
+          <td class="views">
+            <span class='views' title='<span class="translation_missing" title="translation missing: en_US.views">Views</span>'>52</span>
+          </td>
+          <td>
+            July 14, 2020
+          </td>
+        </tr>
+    </tbody>
+
+  </table>
+</div>
+
+  <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement'>
+  </div>
+
+
+ <!-- include_crawler_content? -->
+
+
+
+  
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    
+    
+  </body>
+  
+</html>

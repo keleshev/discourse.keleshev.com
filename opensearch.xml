@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>Compiling to Assembly from Scratch Search</ShortName>
+  <Description>Search for posts on Compiling to Assembly from Scratch</Description>
+  <Tags>discourse forum</Tags>
+    <Image type="image/png">https://discourse.keleshev.com/uploads/default/optimized/1X/32d34deafc2d620b3f4b218b560d5d5f544183dd_2_32x32.png</Image>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://discourse.keleshev.com/opensearch.xml"/>
+  <Url type="text/html" template="https://discourse.keleshev.com/search?q={searchTerms}"/>
+  <Query role="example" searchTerms="search term"/>
+</OpenSearchDescription>

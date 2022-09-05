@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Expression parser understand</title>
+    <link>https://discourse.keleshev.com/t/expression-parser-understand/110</link>
+    <description>How to better understand this pic. Is this ocml grammar ?
+
+![image|690x352](upload://pTagRDnLJIhxFwSaPQXmI4gmrz8.png)</description>
+    
+    <lastBuildDate>Wed, 13 Jan 2021 07:44:30 +0000</lastBuildDate>
+    <category>Uncategorized</category>
+    <atom:link href="https://discourse.keleshev.com/t/expression-parser-understand/110.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Expression parser understand</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <blockquote>
+<p>Maybe we can reorganise book split every PEG rule with code and test.</p>
+</blockquote>
+<p>Maybe this is the way to go; I’ll have to think about that.</p>
+          <p><a href="https://discourse.keleshev.com/t/expression-parser-understand/110/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/expression-parser-understand/110/12</link>
+        <pubDate>Wed, 13 Jan 2021 07:44:30 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-110-12</guid>
+        <source url="https://discourse.keleshev.com/t/expression-parser-understand/110.rss">Expression parser understand</source>
+      </item>
+      <item>
+        <title>Expression parser understand</title>
+        <dc:creator><![CDATA[gengjiawen]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks，this is more clear.</p>
+<p>Maybe we can reorganise book split every PEG rule with code and test.</p>
+<p>This surely helps for readers like me.</p>
+          <p><a href="https://discourse.keleshev.com/t/expression-parser-understand/110/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/expression-parser-understand/110/11</link>
+        <pubDate>Wed, 13 Jan 2021 02:42:46 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-110-11</guid>
+        <source url="https://discourse.keleshev.com/t/expression-parser-understand/110.rss">Expression parser understand</source>
+      </item>
+      <item>
+        <title>Expression parser understand</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p>You can find some test that might be helpful in the book’s repo:</p>
+<aside class="onebox githubblob">
+  <header class="source">
+      <a href="https://github.com/keleshev/compiling-to-assembly-from-scratch/blob/572074fcf78b8c3fec30a992767e3f9fbd50ba98/compiler.ts#L755-L770" target="_blank">github.com</a>
+  </header>
+  <article class="onebox-body">
+    <h4><a href="https://github.com/keleshev/compiling-to-assembly-from-scratch/blob/572074fcf78b8c3fec30a992767e3f9fbd50ba98/compiler.ts#L755-L770" target="_blank">keleshev/compiling-to-assembly-from-scratch/blob/572074fcf78b8c3fec30a992767e3f9fbd50ba98/compiler.ts#L755-L770</a></h4>
+<pre class="onebox"><code class="lang-ts"><ol class="start lines" start="755" style="counter-reset: li-counter 754 ;">
+<li>test("Expression parser", () =&gt; {</li>
+<li>  console.log();</li>
+<li>  let [x, y, z] = [new Id('x'), new Id('y'), new Id('z')];</li>
+<li>  let parse = (string) =&gt; expression.parseStringToCompletion(string);</li>
+<li>
+</li><li>  console.assert(parse('x + y + z').equals(new Add(new Add(x, y), z)));</li>
+<li>  console.assert(parse('x + y * z').equals(new Add(x, new Multiply(y, z))));</li>
+<li>  console.assert(parse('x * y + z').equals(new Add(new Multiply(x, y), z)));</li>
+<li>  console.assert(parse('(x + y) * z').equals(new Multiply(new Add(x, y), z)));</li>
+<li>  console.assert(parse('x == y + z').equals(new Equal(x, new Add(y, z))));</li>
+<li>  console.assert(parse('x + y == z').equals(new Equal(new Add(x, y), z)));</li>
+<li>
+</li><li>  console.assert(parse('f()').equals(new Call('f', [])));</li>
+<li>  console.assert(parse('f(x)').equals(new Call('f', [x])));</li>
+<li>  console.assert(parse('f(x, y, z)').equals(new Call('f', [x, y, z])));</li>
+<li>});</li>
+</ol></code></pre>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>If you take <code>call</code>, as an example:</p>
+<pre><code class="lang-javascript">      // call &lt;- ID LEFT_PAREN args RIGHT_PAREN
+      let call =
+        ID.and(LEFT_PAREN.and(args.and(RIGHT_PAREN)))
+</code></pre>
+<p>You can write a test like this:</p>
+<pre><code class="lang-javascript">let node = call.parseStringToCompletion("f(x)");
+console.assert(node.equals(new Call("f", new Id("x"))));
+</code></pre>
+<p>Apart from the <a href="https://bford.info/pub/lang/peg.pdf">paper</a> (wich is quite approachable, as I remember), maybe this Wikipedia example could be of some help?</p>
+<aside class="onebox wikipedia">
+  <header class="source">
+      <a href="https://en.wikipedia.org/wiki/Parsing_expression_grammar#Examples" target="_blank">en.wikipedia.org</a>
+  </header>
+  <article class="onebox-body">
+    
+
+<h3><a href="https://en.wikipedia.org/wiki/Parsing_expression_grammar#Examples" target="_blank">Parsing expression grammar | Examples</a></h3>
+
+<p>This is a PEG that recognizes mathematical formulas that apply the basic five operations to non-negative integers.
+ In the above example, the terminal symbols are characters of text, represented by characters in single quotes, such as '(' and ')'. The range [0-9] is also a shortcut for ten characters, indicating any one of the digits 0 through 9. (This range syntax is the same as the syntax used by regular expressions.) The nonterminal symbols are the ones that expand to other rules: Value, Power...</p>
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+          <p><a href="https://discourse.keleshev.com/t/expression-parser-understand/110/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/expression-parser-understand/110/10</link>
+        <pubDate>Mon, 11 Jan 2021 18:48:00 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-110-10</guid>
+        <source url="https://discourse.keleshev.com/t/expression-parser-understand/110.rss">Expression parser understand</source>
+      </item>
+      <item>
+        <title>Expression parser understand</title>
+        <dc:creator><![CDATA[gengjiawen]]></dc:creator>
+        <description><![CDATA[
+            <p>Also I think I need to understand PEG to move on. Any other material other than the pdf essay.</p>
+          <p><a href="https://discourse.keleshev.com/t/expression-parser-understand/110/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/expression-parser-understand/110/9</link>
+        <pubDate>Mon, 11 Jan 2021 03:49:41 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-110-9</guid>
+        <source url="https://discourse.keleshev.com/t/expression-parser-understand/110.rss">Expression parser understand</source>
+      </item>
+      <item>
+        <title>Expression parser understand</title>
+        <dc:creator><![CDATA[gengjiawen]]></dc:creator>
+        <description><![CDATA[
+            <p>I still find this a bits of hard to understand. Maybe we can apply tdd here.</p>
+<p>Like write a simple test case for</p>
+<blockquote>
+<p>args &lt;- (expression (COMMA expression)*)?</p>
+</blockquote>
+<p>This maybe easier to understand.</p>
+          <p><a href="https://discourse.keleshev.com/t/expression-parser-understand/110/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/expression-parser-understand/110/8</link>
+        <pubDate>Mon, 11 Jan 2021 03:47:50 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-110-8</guid>
+        <source url="https://discourse.keleshev.com/t/expression-parser-understand/110.rss">Expression parser understand</source>
+      </item>
+      <item>
+        <title>Expression parser understand</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for your feedback, <a class="mention" href="/u/gengjiawen">@gengjiawen</a>. I will give it some more thought and will try to improve this part, but this will probably take some time. In the meanwhile feel free to post more questions.</p>
+<p>Here’s some informal description of what this PEG grammar stands for. It has operators similar to regular expressions: <code>*</code> means repetition, <code>?</code> means optionality. However, there are differences too. Notably, strings must be quoted. This way <code>"hi" ?</code> means a grammar that corresponds to either <code>hi</code> or an empty string.</p>
+<p>Grammar rules are just names for existing expressions. If you define a rule <code>hi &lt;- "hi" ?</code>, then you can write just <code>hi</code> instead of <code>"hi" ?</code>.</p>
+<blockquote>
+<p>There are parser tools that generate parsers from this kind of grammar description, however, in the book we implement the parser manually (using parser combinators), however, it still helps (at least to me) to think about grammars first before jumping to implement the parser combinators.</p>
+</blockquote>
+<p>The expression grammar from the book doesn’t use quoted strings. Instead, it follows this convention that simplest rules (our pseudo-tokens) are capitalized. They are defined using the <code>token</code> parser combinator.</p>
+<pre><code class="lang-auto">      args &lt;- (expression (COMMA expression)*)?
+      call &lt;- ID LEFT_PAREN args RIGHT_PAREN
+      atom &lt;- call / ID / NUMBER
+            / LEFT_PAREN expression RIGHT_PAREN
+      unary &lt;- NOT? atom
+      product &lt;- unary ((STAR / SLASH) unary)*
+      sum &lt;- product ((PLUS / MINUS) product)*
+      comparison &lt;- sum ((EQUAL / NOT_EQUAL) sum)*
+      expression &lt;- comparison
+</code></pre>
+<p>This grammar is pretty involved, but the book goes over each of the rule and shows how to implement it using our parser combinators.</p>
+<p>Let’s look at one of the rules, <code>call</code>:</p>
+<pre><code class="lang-auto">call &lt;- ID LEFT_PAREN args RIGHT_PAREN
+</code></pre>
+<p>It says that a call starts with an identifier, followed by an opening parenthesis, then arguments (defined separately), then a closing parenthesis. This way <code>f(x)</code> fits our <code>call</code> rule, but <code>f[x]</code> does not.</p>
+<p>The implementation of <code>call</code> from the book, using parser combinators:</p>
+<pre><code class="lang-javascript">      // call &lt;- ID LEFT_PAREN args RIGHT_PAREN
+      let call =
+        ID.and(LEFT_PAREN.and(args.and(RIGHT_PAREN)))
+</code></pre>
+<p>Hope this helps! If not, let me know. I appreciate all the feedback.</p>
+          <p><a href="https://discourse.keleshev.com/t/expression-parser-understand/110/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/expression-parser-understand/110/7</link>
+        <pubDate>Tue, 05 Jan 2021 15:09:13 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-110-7</guid>
+        <source url="https://discourse.keleshev.com/t/expression-parser-understand/110.rss">Expression parser understand</source>
+      </item>
+      <item>
+        <title>Expression parser understand</title>
+        <dc:creator><![CDATA[gengjiawen]]></dc:creator>
+        <description><![CDATA[
+            <p>I find this very hard to understand. Maybe add more context and give an introduction here here will make it easier to read.</p>
+          <p><a href="https://discourse.keleshev.com/t/expression-parser-understand/110/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/expression-parser-understand/110/6</link>
+        <pubDate>Tue, 05 Jan 2021 08:28:31 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-110-6</guid>
+        <source url="https://discourse.keleshev.com/t/expression-parser-understand/110.rss">Expression parser understand</source>
+      </item>
+      <item>
+        <title>Expression parser understand</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="/u/beefok">@beefok</a>, yeah PEG and EBNF are very similar. For mundane academic reasons I decided to use PEG for the book, even though EBNF is generally more familiar.</p>
+          <p><a href="https://discourse.keleshev.com/t/expression-parser-understand/110/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/expression-parser-understand/110/5</link>
+        <pubDate>Mon, 04 Jan 2021 15:57:21 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-110-5</guid>
+        <source url="https://discourse.keleshev.com/t/expression-parser-understand/110.rss">Expression parser understand</source>
+      </item>
+      <item>
+        <title>Expression parser understand</title>
+        <dc:creator><![CDATA[beefok]]></dc:creator>
+        <description><![CDATA[
+            <p>Ah PEG, gotcha! It is exactly the correct syntax, haha.</p>
+          <p><a href="https://discourse.keleshev.com/t/expression-parser-understand/110/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/expression-parser-understand/110/4</link>
+        <pubDate>Mon, 04 Jan 2021 15:52:39 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-110-4</guid>
+        <source url="https://discourse.keleshev.com/t/expression-parser-understand/110.rss">Expression parser understand</source>
+      </item>
+      <item>
+        <title>Expression parser understand</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for the question, <a class="mention" href="/u/gengjiawen">@gengjiawen</a>!</p>
+<p>It looks like this is from section <em>6.4 Expression grammar</em>. This grammar corresponds to the <em>expression</em> part of the subset of TypeScript/JavaScript that we are trying to implement in the book. It uses PEG notation (Parsing Expression Grammar). You might have heard of other similar notations such as EBNF, for example. The previous chapter 5 introduced parsing combinators and along with a light introduction of the PEG notation. <em>(Perhaps, too light?)</em></p>
+<p>The following paper (PDF) introduced PEG and its notation and is very approachable if you want to have dive into this area: <a href="https://bford.info/pub/lang/peg.pdf">https://bford.info/pub/lang/peg.pdf</a>.</p>
+          <p><a href="https://discourse.keleshev.com/t/expression-parser-understand/110/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/expression-parser-understand/110/3</link>
+        <pubDate>Mon, 04 Jan 2021 15:50:09 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-110-3</guid>
+        <source url="https://discourse.keleshev.com/t/expression-parser-understand/110.rss">Expression parser understand</source>
+      </item>
+      <item>
+        <title>Expression parser understand</title>
+        <dc:creator><![CDATA[beefok]]></dc:creator>
+        <description><![CDATA[
+            <p>With the exception of ‘/’ instead of ‘|’ and ‘&lt;-’ instead of ‘=’, this is just EBNF <a href="https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form#:~:text=In%20computer%20science%2C%20extended%20Backus,as%20a%20computer%20programming%20language" rel="nofollow noopener">https://en.wikipedia.org/wiki/Extended_Backus–Naur_form#:~:text=In%20computer%20science%2C%20extended%20Backus,as%20a%20computer%20programming%20language</a>.</p>
+          <p><a href="https://discourse.keleshev.com/t/expression-parser-understand/110/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/expression-parser-understand/110/2</link>
+        <pubDate>Mon, 04 Jan 2021 15:48:00 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-110-2</guid>
+        <source url="https://discourse.keleshev.com/t/expression-parser-understand/110.rss">Expression parser understand</source>
+      </item>
+      <item>
+        <title>Expression parser understand</title>
+        <dc:creator><![CDATA[gengjiawen]]></dc:creator>
+        <description><![CDATA[
+            <p>How to better understand this pic. Is this ocml grammar ?</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://discourse.keleshev.com/uploads/default/original/1X/b572bfe53c97260c6fff2ec870f7fc3c18263ebe.png" data-download-href="https://discourse.keleshev.com/uploads/default/b572bfe53c97260c6fff2ec870f7fc3c18263ebe" title="image"><img src="https://discourse.keleshev.com/uploads/default/optimized/1X/b572bfe53c97260c6fff2ec870f7fc3c18263ebe_2_690x352.png" alt="image" data-base62-sha1="pTagRDnLJIhxFwSaPQXmI4gmrz8" width="690" height="352" srcset="https://discourse.keleshev.com/uploads/default/optimized/1X/b572bfe53c97260c6fff2ec870f7fc3c18263ebe_2_690x352.png, https://discourse.keleshev.com/uploads/default/optimized/1X/b572bfe53c97260c6fff2ec870f7fc3c18263ebe_2_1035x528.png 1.5x, https://discourse.keleshev.com/uploads/default/optimized/1X/b572bfe53c97260c6fff2ec870f7fc3c18263ebe_2_1380x704.png 2x" data-small-upload="https://discourse.keleshev.com/uploads/default/optimized/1X/b572bfe53c97260c6fff2ec870f7fc3c18263ebe_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">1507×770 50 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+          <p><a href="https://discourse.keleshev.com/t/expression-parser-understand/110/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/expression-parser-understand/110/1</link>
+        <pubDate>Sun, 03 Jan 2021 14:02:26 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-110-1</guid>
+        <source url="https://discourse.keleshev.com/t/expression-parser-understand/110.rss">Expression parser understand</source>
+      </item>
+  </channel>
+</rss>

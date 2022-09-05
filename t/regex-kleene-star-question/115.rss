@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Regex kleene star question</title>
+    <link>https://discourse.keleshev.com/t/regex-kleene-star-question/115</link>
+    <description>reading again the book since it’s complete and stumbled on
+
+&gt; A regular expression `a*a` will match one or more letters `a`. However, `a*a` in PEG will never match anything...
+
+On page 44.
+
+TIL! I assumed regex matched like PEG but turns out it’s not the case.
+Is it due to backtracking in regexp? Where is this behaviour documented?
+
+Thanks!</description>
+    
+    <lastBuildDate>Wed, 24 Feb 2021 17:42:32 +0000</lastBuildDate>
+    <category>Uncategorized</category>
+    <atom:link href="https://discourse.keleshev.com/t/regex-kleene-star-question/115.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Regex kleene star question</title>
+        <dc:creator><![CDATA[gmarik]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks!</p>
+<p>Yeah, PEG backtracking wasn’t surprising for me but regexp’s was; but only the ones with O(n) guarantees like RE2(tested on <a href="http://play.golang.org" rel="nofollow noopener">play.golang.org</a>). So i was wondering how is that implemented since it’s working allegedly without backtracking…</p>
+<p>Not expecting the answer from you since it’s off topic, just thinking out loud <img src="https://discourse.keleshev.com/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://discourse.keleshev.com/t/regex-kleene-star-question/115/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/regex-kleene-star-question/115/3</link>
+        <pubDate>Wed, 24 Feb 2021 17:42:32 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-115-3</guid>
+        <source url="https://discourse.keleshev.com/t/regex-kleene-star-question/115.rss">Regex kleene star question</source>
+      </item>
+      <item>
+        <title>Regex kleene star question</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p>PEG backtracks only at the points where the <em>alternative</em> (<code>/</code>) operator is used. You can see this behaviour from the code here:</p>
+<aside class="onebox githubblob">
+  <header class="source">
+      <a href="https://github.com/keleshev/compiling-to-assembly-from-scratch/blob/8a6424fd640e8c13eac8e31b82cdb952f98e1f83/part-1/compiler.ts#L61-L69" target="_blank">github.com</a>
+  </header>
+  <article class="onebox-body">
+    <h4><a href="https://github.com/keleshev/compiling-to-assembly-from-scratch/blob/8a6424fd640e8c13eac8e31b82cdb952f98e1f83/part-1/compiler.ts#L61-L69" target="_blank">keleshev/compiling-to-assembly-from-scratch/blob/8a6424fd640e8c13eac8e31b82cdb952f98e1f83/part-1/compiler.ts#L61-L69</a></h4>
+<pre class="onebox"><code class="lang-ts"><ol class="start lines" start="61" style="counter-reset: li-counter 60 ;">
+<li>or(parser: Parser&lt;T&gt;): Parser&lt;T&gt; {</li>
+<li>  return new Parser((source) =&gt; {</li>
+<li>    let result = this.parse(source);</li>
+<li>    if (result)</li>
+<li>      return result;</li>
+<li>    else</li>
+<li>      return parser.parse(source);</li>
+<li>  });</li>
+<li>}</li>
+</ol></code></pre>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>If <code>this.parse(source)</code> fails then the other <code>parser.parse(source)</code> is retried with the same source.</p>
+<p>Regexes, on the other hand, backtrack in general when a match is not found.<br>
+The following regex example might be useful: <a href="https://riptutorial.com/regex/example/3179/what-causes-backtracking">https://riptutorial.com/regex/example/3179/what-causes-backtracking</a>.</p>
+<p>I’ve never implemented a regex engine, so I have only an intuitive understanding of it.</p>
+          <p><a href="https://discourse.keleshev.com/t/regex-kleene-star-question/115/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/regex-kleene-star-question/115/2</link>
+        <pubDate>Wed, 24 Feb 2021 16:31:56 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-115-2</guid>
+        <source url="https://discourse.keleshev.com/t/regex-kleene-star-question/115.rss">Regex kleene star question</source>
+      </item>
+      <item>
+        <title>Regex kleene star question</title>
+        <dc:creator><![CDATA[gmarik]]></dc:creator>
+        <description><![CDATA[
+            <p>reading again the book since it’s complete and stumbled on</p>
+<blockquote>
+<p>A regular expression <code>a*a</code> will match one or more letters <code>a</code>. However, <code>a*a</code> in PEG will never match anything…</p>
+</blockquote>
+<p>On page 44.</p>
+<p>TIL! I assumed regex matched like PEG but turns out it’s not the case.<br>
+Is it due to backtracking in regexp? Where is this behaviour documented?</p>
+<p>Thanks!</p>
+          <p><a href="https://discourse.keleshev.com/t/regex-kleene-star-question/115/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/regex-kleene-star-question/115/1</link>
+        <pubDate>Wed, 24 Feb 2021 06:49:54 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-115-1</guid>
+        <source url="https://discourse.keleshev.com/t/regex-kleene-star-question/115.rss">Regex kleene star question</source>
+      </item>
+  </channel>
+</rss>

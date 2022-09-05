@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Tell us about your compiler!</title>
+    <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11</link>
+    <description>Which language you are using to write it, and which language does it compile? What are your struggles? What are your successes?</description>
+    
+    <lastBuildDate>Mon, 29 Nov 2021 13:15:53 +0000</lastBuildDate>
+    <category>Uncategorized</category>
+    <atom:link href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[jsegarra]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi,</p>
+<p>The two languages I have implemented:</p>
+<p>A JavaScript interpreter: <a href="https://code.google.com/archive/p/sejscript" rel="nofollow noopener">https://code.google.com/archive/p/sejscript</a> implemented in Delphi, using bytecode.</p>
+<p>A transpiler from NoSQL to SQL: <a href="http://jsegarra.net/nosqlonsql" rel="nofollow noopener">http://jsegarra.net/nosqlonsql</a> , implemented in C#.</p>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/30">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/30</link>
+        <pubDate>Mon, 29 Nov 2021 13:15:53 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-30</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[jdh30]]></dc:creator>
+        <description><![CDATA[
+            <p>I forgot -O2 when compiling my C stdlib which actually makes a big difference: my compiler generates code that is 2.25x slower than ocamlopt on both Fibonacci and Hailstones benchmarks!</p>
+<p>Also worth noting that those benchmarks are basically the best case scenario for OCaml at this point.</p>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/29">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/29</link>
+        <pubDate>Sat, 02 Oct 2021 13:13:25 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-29</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[jdh30]]></dc:creator>
+        <description><![CDATA[
+            <p>That’s the old one, yes. I haven’t made the new one public yet but I’d like to but, to be honest, I’m getting tired of all the tedium around VCS these days so I’m working on something better. Maybe I’ll put it up there. <img src="https://discourse.keleshev.com/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>Also, I’d like to bootstrap it…</p>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/28">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/28</link>
+        <pubDate>Wed, 29 Sep 2021 11:26:20 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-28</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="/u/jdh30">@jdh30</a> thanks for the interesting experience report! You original experiment is located in the following repo, right?</p>
+<p><a href="https://github.com/jdh30/growing_a_compiler">GitHub - jdh30/growing_a_compiler: Growing a compiler</a></p>
+<p>Is the new compiler available publicly?</p>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/27">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/27</link>
+        <pubDate>Wed, 29 Sep 2021 11:17:46 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-27</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[jdh30]]></dc:creator>
+        <description><![CDATA[
+            <p>Having put quite some effort into my hobby compiler I have come to the conclusion that my approach was entirely upside-down and the result was poor performance. Specifically I was using a stack-based compiler to compile a relatively sophisticated language into a relatively wide variety of assembly instructions. This resulted in far too many loads and stores and performance closer to ocamlc’s interpreted bytecode than ocamlopt’s native code. Specifically, my generated code was 5.3x slower than ocamlopt’s! This left me disappointed and frustrated: why bother generating native code that runs as slowly as interpreted bytecode?! Then I had a revelation…</p>
+<p>Especially if you’re targeting the register-rich Arm architectures the initial focus should be restricted to:</p>
+<ul>
+<li>Int constants</li>
+<li>Calling conventions</li>
+<li>Tail call elimination</li>
+<li>Conditional execution</li>
+<li>Register allocations</li>
+</ul>
+<p>i.e. not arithmetic, loads, stores, strings, globals and so on.</p>
+<p>Why? Because you can implement <em>everything</em> with just this by relegating all non-essential functionality to a C stdlib. Arithmetic operations become functions. Loads and stores become functions. Even stdin and stdout are obtained via function calls. You can call any C function!</p>
+<p>Using this approach I have managed to implement a compiler for a <em>general purpose</em> programming language that generates just 7 different assembly instructions and the entire compiler is just 202 lines of OCaml code (+68 more for lexing and parsing) and the generated code is “only” 2.9x slower than ocamlopt.</p>
+<p>What do you think?</p>
+<p>I’ve written an echo program and Fibonacci function in my current source language. Next I’ll try implementing a more sophisticated front end that targets this minimal language.</p>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/26">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/26</link>
+        <pubDate>Tue, 28 Sep 2021 22:35:52 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-26</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[Tamiyocs]]></dc:creator>
+        <description><![CDATA[
+            <p>Going to be using Rust to create a custom statically typed language. Been working through creating compilers that emit bytecode but I’m SUPER excited to be able to explore emitting raw assembly <img src="https://discourse.keleshev.com/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/25">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/25</link>
+        <pubDate>Sun, 27 Sep 2020 20:31:37 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-25</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="/u/jdh30">@jdh30</a> looks like you’ve got a lot of interesting things going on: a custom calling convention, an interesting way of keeping track of the environment, and you avoid libc. Looking forward to see your next steps!</p>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/24">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/24</link>
+        <pubDate>Sun, 16 Aug 2020 20:39:00 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-24</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[jdh30]]></dc:creator>
+        <description><![CDATA[
+            <p>I am using OCaml to write an ML compiler targeting armv8 on my Raspberry Pi 4 with stock 32-bit OS. I am documenting the experience and trying to maintain an entire lineage <a href="https://github.com/jdh30/growing_a_compiler" rel="nofollow noopener">here</a>.</p>
+<p>My struggle is mostly finding time. My success is that my 161-line compiler can compile and run:</p>
+<pre><code class="lang-auto">let sqr = fun x -&gt; x*x in (fun f -&gt; f(f 3)) sqr
+</code></pre>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/23">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/23</link>
+        <pubDate>Sun, 16 Aug 2020 18:28:09 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-23</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[mukadr]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for catching this! Thinking in how to fix it.</p>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/22">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/22</link>
+        <pubDate>Sat, 08 Aug 2020 15:40:46 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-22</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[mukadr]]></dc:creator>
+        <description><![CDATA[
+            <p>Nice! I will continue with C# for now, but maybe a future rewrite in F# would be a good start.</p>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/21">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/21</link>
+        <pubDate>Sat, 08 Aug 2020 15:38:55 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-21</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="/u/mukadr">@mukadr</a> just thought that because of backtracking, the <code>currentLine++;</code> might be executed erroneously multiple times on the same line.</p>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/20">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/20</link>
+        <pubDate>Sat, 08 Aug 2020 10:00:28 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-20</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p>Yep, F# has good type inference and would be a good fit for this. It would look something like this, in your case:</p>
+<pre><code class="lang-auto">module PascalParser = 
+
+  let mutable currentLine = 1
+
+  let report message = sprintf "%d: %s" currentLine message
+
+  let whitespace =
+    OneOrMore(
+      Symbol(' ')
+        .Or(Symbol('\t'))
+        .Or(Symbol('\n').Bind(fun c -&gt; 
+          currentLine &lt;- currentLine + 1;
+          Constant(c)
+    )).Or(Symbol('\r')))
+
+  ...
+</code></pre>
+<p>Where module is similar to a static class.</p>
+<p>By the way, nice that you track the current line number. It can be incorporated into the <code>Source</code> class to make it transparent to the user of it.</p>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/19">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/19</link>
+        <pubDate>Sat, 08 Aug 2020 08:06:13 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-19</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[mukadr]]></dc:creator>
+        <description><![CDATA[
+            <p>Moved the code to another repository: <a href="https://github.com/mukadr/SharpPascal" rel="nofollow noopener">https://github.com/mukadr/SharpPascal</a></p>
+<p>Doing the parsing in a single method, so I can use <strong>var</strong> for all declarations: <a href="https://github.com/mukadr/SharpPascal/blob/master/src/SharpPascal/Syntax/PascalParser.cs" rel="nofollow noopener">https://github.com/mukadr/SharpPascal/blob/master/src/SharpPascal/Syntax/PascalParser.cs</a></p>
+<p>Thanks to this “functional approach to writing parsers” I’m considering ​​learning F# <img src="https://discourse.keleshev.com/images/emoji/twitter/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/18</link>
+        <pubDate>Fri, 07 Aug 2020 21:03:49 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-18</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[nerdboy]]></dc:creator>
+        <description><![CDATA[
+            <p>I used inheritance + dynamic dispatch with my AST. I think it leads to cleaner code.</p>
+<p>If I did variants - there are some limitations that drive me nuts (I tried it on some other nim code of mine and found some limitations). I also think that variants means that you would perhaps have one emit procedure that looks at which variant it is and then go from there (so either one big case statement or have it call a specific procedure (which is basically the same thing as dynamic dispatch in the end)).</p>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/17</link>
+        <pubDate>Thu, 06 Aug 2020 04:44:15 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-17</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p>Looks like Nim has both variant types and inheritance with dynamic dispatch. Which one did you decide to use for the AST?</p>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/16</link>
+        <pubDate>Wed, 05 Aug 2020 21:19:59 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-16</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[nerdboy]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m writing my version of the compiler in Nim. It will hopefully compile your language (with a number of restictions) into the ARM assembly that you output. I currently have the AST portion completed as well as a lexer (using the regular expressions you had developed for this). I am currently working on the parser which should glue the other 2 modules.</p>
+<p>I do love the fact that built the way you have it - I can easily test the 3 modules separately.</p>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/15</link>
+        <pubDate>Wed, 05 Aug 2020 05:13:34 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-15</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[mukadr]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes, it matches chars and ZeroOrMore/OneOrMore concatenate them into a string. So far it seems enough for my needs.</p>
+<p>One problem I had with the Parser class was with static methods.</p>
+<p>Since Parser has a generic type T, every call to a static method is required to specify the type T.</p>
+<p>For example (from <a class="mention" href="/u/apos">@Apos</a>):</p>
+<p><code>public static Parser&lt;string&gt; Whitespace = Parser&lt;string&gt;.Regexp(@"[ \n\r\t]+");</code></p>
+<p>Notice that <code>Parser&lt;string&gt;.Regexp</code> could be written as <code>Parser.Regexp</code>, since it does not depend on the type T.</p>
+<p>To solve this issue in C#, one can move the static methods to a different class, like:</p>
+<pre><code>public static class ParserFactory
+{
+    …
+    public static Parser&lt;string&gt; Regexp(string regexp, RegexOptions options = RegexOptions.None) {
+    …
+}
+</code></pre>
+<p>Then you can get rid of the generics:</p>
+<p><code>var parser = ParserFactory.Regexp(…);</code></p>
+<p>There is also “using static" declaration to import all static methods from a class:</p>
+<pre><code>using static x.y.ParserFactory;
+…
+    { 
+        var parser = Regexp(…);
+    }
+…
+</code></pre>
+<p>Unfortunately I could not find a way to simplify the class attributes, since var only works for local variables:</p>
+<p>public static <strong>Parser&lt;Func&lt;AST, Not&gt;&gt;</strong> NOT =  …</p>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/14</link>
+        <pubDate>Tue, 04 Aug 2020 14:03:11 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-14</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p>Welcome, <a class="mention" href="/u/mukadr">@mukadr</a>! Your parser combinators look good. It is interesting to compare with <a class="mention" href="/u/apos">@Apos</a>’ approach. It seems that you’ve decided not to use regular expressions, but instead have several <code>sourse.Match</code> overloads for chars and strings and such? This should also work. It will also be interesting to see if you know a way to combat the verbose type annotations, like in <a class="mention" href="/u/apos">@Apos</a> case:</p>
+<pre><code class="lang-auto">public static Parser&lt;Func&lt;AST, Not&gt;&gt; NOT = token(@"!").Map&lt;Func&lt;AST, Not&gt;&gt;(_ =&gt; term =&gt; new Not(term));
+</code></pre>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/13</link>
+        <pubDate>Tue, 04 Aug 2020 13:11:30 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-13</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[mukadr]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m first writing the parser combinator utilities in a separate project, in C# (.NET Core): <a href="https://github.com/mukadr/ParseDotNet" rel="nofollow noopener">https://github.com/mukadr/ParseDotNet</a></p>
+<p>The next part will be a compiler for some Pascal dialect, targeting ARM as explained in the book. I’m using my spare time to work on this project and study more about code generation. I would like to do register allocation.</p>
+<p>I liked the approach used in the book for writing parsers. It is convenient to test each piece separately.</p>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/12</link>
+        <pubDate>Mon, 03 Aug 2020 23:08:47 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-12</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="/u/apos">@Apos</a>, by the way, nice idea with using <code>@"\G"</code> and <code>Match(string, int)</code> overload to solve the problem of matching at a specific position in a string.</p>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/11</link>
+        <pubDate>Thu, 30 Jul 2020 16:10:41 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-11</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p>Yeah, these type annotations are heavy. One thing that comes to mind, is to make the token definitions local to a function. This way, you can take advantage of local type inference. You could write:</p>
+<pre><code class="lang-auto">var NOT = token(@"!").Map&lt;Func&lt;AST, Not&gt;&gt;(_ =&gt; term =&gt; new Not(term));
+</code></pre>
+<p>Instead of:</p>
+<pre><code class="lang-auto">public static Parser&lt;Func&lt;AST, Not&gt;&gt; NOT = token(@"!").Map&lt;Func&lt;AST, Not&gt;&gt;(_ =&gt; term =&gt; new Not(term));
+</code></pre>
+<p>But that forces you to have all of the parser defined within a single function, I think.</p>
+<p>I’m not an expert on C#, so maybe anyone has some better idea?</p>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/10</link>
+        <pubDate>Thu, 30 Jul 2020 15:48:35 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-10</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[Apos]]></dc:creator>
+        <description><![CDATA[
+            <p>It’s mostly going well. I started writing a bit of the parser combinators in C#, but I’m finding the generics to be pretty heavy. For example:</p>
+<aside class="onebox githubblob">
+  <header class="source">
+      <a href="https://github.com/Apostolique/Vyne-Compiler/blob/aef87f7418cfc18015be9bcfb27925c1194a3272/src/Parser.cs#L136" target="_blank" rel="nofollow noopener">github.com</a>
+  </header>
+  <article class="onebox-body">
+    <h4><a href="https://github.com/Apostolique/Vyne-Compiler/blob/aef87f7418cfc18015be9bcfb27925c1194a3272/src/Parser.cs#L136" target="_blank" rel="nofollow noopener">Apostolique/Vyne-Compiler/blob/aef87f7418cfc18015be9bcfb27925c1194a3272/src/Parser.cs#L136</a></h4>
+<pre class="onebox"><code class="lang-cs"><ol class="start lines" start="126" style="counter-reset: li-counter 125 ;">
+<li>public static Parser&lt;string&gt; SEMICOLON = token(@";");</li>
+<li>public static Parser&lt;string&gt; LEFT_PAREN = token(@"[(]");</li>
+<li>public static Parser&lt;string&gt; RIGHT_PAREN = token(@"[)]");</li>
+<li>public static Parser&lt;string&gt; LEFT_BRACE = token(@"[{]");</li>
+<li>public static Parser&lt;string&gt; RIGHT_BRACE = token(@"[}]");</li>
+<li>
+</li><li>public static Parser&lt;Integer&gt; INTEGER = token(@"[0-9]+").Map(digits =&gt; new Integer(Int32.Parse(digits)));</li>
+<li>public static Parser&lt;string&gt; ID = token(@"[a-zA-Z_]");</li>
+<li>public static Parser&lt;Id&gt; id = ID.Map(x =&gt; new Id(x));</li>
+<li>
+</li><li class="selected">public static Parser&lt;Func&lt;AST, Not&gt;&gt; NOT = token(@"!").Map&lt;Func&lt;AST, Not&gt;&gt;(_ =&gt; term =&gt; new Not(term));</li>
+<li>public static Parser&lt;Func&lt;AST, AST, Equal&gt;&gt; EQUAL = token(@"==").Map&lt;Func&lt;AST, AST, Equal&gt;&gt;(_ =&gt; (left, right) =&gt; new Equal(left, right));</li>
+<li>public static Parser&lt;Func&lt;AST, AST, NotEqual&gt;&gt; NOT_EQUAL = token(@"!=").Map&lt;Func&lt;AST, AST, NotEqual&gt;&gt;(_ =&gt; (left, right) =&gt; new NotEqual(left, right));</li>
+<li>public static Parser&lt;Func&lt;AST, AST, Add&gt;&gt; PLUS = token(@"[+]").Map&lt;Func&lt;AST, AST, Add&gt;&gt;(_ =&gt; (left, right) =&gt; new Add(left, right));</li>
+<li>public static Parser&lt;Func&lt;AST, AST, Subtract&gt;&gt; MINUS = token(@"[-]").Map&lt;Func&lt;AST, AST, Subtract&gt;&gt;(_ =&gt; (left, right) =&gt; new Subtract(left, right));</li>
+<li>public static Parser&lt;Func&lt;AST, AST, Multiply&gt;&gt; STAR = token(@"[*]").Map&lt;Func&lt;AST, AST, Multiply&gt;&gt;(_ =&gt; (left, right) =&gt; new Multiply(left, right));</li>
+<li>public static Parser&lt;Func&lt;AST, AST, Divide&gt;&gt; SLASH = token(@"[/]").Map&lt;Func&lt;AST, AST, Divide&gt;&gt;(_ =&gt; (left, right) =&gt; new Divide(left, right));</li>
+<li>
+</li><li>public static Parser&lt;AST&gt; expression = Parser&lt;string&gt;.Error&lt;AST&gt;("expression parser used before definition");</li>
+<li>
+</li><li>public static Parser&lt;List&lt;AST&gt;&gt; args =</li>
+</ol></code></pre>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>And I didn’t get to the interesting stuff yet. Currently looking for ways to simplify that. Also I might have written some of them wrong, I’ll have to test later.</p>
+<p>I tested with TypeScript too, but I’m not sold on it yet. It feels too much like JavaScript which I guess is the point, but I have more fun with JavaScript.</p>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/9</link>
+        <pubDate>Thu, 30 Jul 2020 05:46:48 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-9</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="/u/apos">@Apos</a> any blockers so far?</p>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/8</link>
+        <pubDate>Wed, 29 Jul 2020 21:34:05 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-8</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[Apos]]></dc:creator>
+        <description><![CDATA[
+            <p>My compiler’s repo will be here: <a href="https://github.com/Apostolique/Vyne-Compiler" rel="nofollow noopener">https://github.com/Apostolique/Vyne-Compiler</a>.</p>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/7</link>
+        <pubDate>Fri, 24 Jul 2020 03:05:37 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-7</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+      <item>
+        <title>Tell us about your compiler!</title>
+        <dc:creator><![CDATA[stn]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="/u/keleshev">@keleshev</a> I will. Looking forward to the rest of the content. Have fun and good luck.</p>
+          <p><a href="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/tell-us-about-your-compiler/11/6</link>
+        <pubDate>Mon, 13 Jul 2020 10:17:06 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-11-6</guid>
+        <source url="https://discourse.keleshev.com/t/tell-us-about-your-compiler/11.rss">Tell us about your compiler!</source>
+      </item>
+  </channel>
+</rss>

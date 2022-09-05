@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Language description thoughts</title>
+    <link>https://discourse.keleshev.com/t/language-description-thoughts/53</link>
+    <description>Hi,
+
+I love the draft and have gone through it. The language itself is simple and basic - but there is one thing that you might consider adding that seems very relevant to your description of the language. You describe the language as:
+
+&gt; But the compiler’s source or input language is a subset (or a simpli-
+fied version) of TypeScript.
+
+One thing that I think migh be important to some is the idea of reserved keywords (or in your language - there does not seem to be any). For example - in your language - I can do this:
+
+&gt; var if = 10;
+
+Which allows one to do this:
+&gt; if (if == 10)
+
+To some this might seem like a small thing - but I think by adding in a quick note about there not being any reserved keywords for variable names and the like - it would be helpful to others.</description>
+    
+    <lastBuildDate>Wed, 05 Aug 2020 04:52:06 +0000</lastBuildDate>
+    <category>Uncategorized</category>
+    <atom:link href="https://discourse.keleshev.com/t/language-description-thoughts/53.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Language description thoughts</title>
+        <dc:creator><![CDATA[nerdboy]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes - that makes perfect sense to me.</p>
+<p>I’d say that since this is supposed to be a simple language - a text explanation would be good enough.</p>
+<p>I think that any more would overcomplicate this for just a quick language developed to show the process from beginning to end.</p>
+<p>I wonder if having a section on “Future things you can do” would be a neat idea. This might make a good item for that section. Another might be related to selective case sensitivity for keywords/variables.</p>
+          <p><a href="https://discourse.keleshev.com/t/language-description-thoughts/53/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/language-description-thoughts/53/4</link>
+        <pubDate>Wed, 05 Aug 2020 04:52:06 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-53-4</guid>
+        <source url="https://discourse.keleshev.com/t/language-description-thoughts/53.rss">Language description thoughts</source>
+      </item>
+      <item>
+        <title>Language description thoughts</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p>To disallow code like <code>var if = 10</code> the identifier rule should be adjusted. You need to have one more primitive combinator, <code>notFollowedBy</code> that asserts that the source doesn’t match a rule (this is called <em>syntactic predicate</em> in PEG). So the identifier rule should be something like:</p>
+<pre><code class="lang-auto">let keyword = IF.or(ELSE).or(FUNCTION) // etc...
+let id = notFollowedBy(keyword).and(ID)
+</code></pre>
+<p>I am a bit hesitant to introduce a whole new primitive combinator only to solve this problem. I’ll have to give this some thought. Maybe I can come up with something simpler. Or maybe, just a textual explanation of this problem will suffice.</p>
+<p><a class="mention" href="/u/nerdboy">@nerdboy</a>, does this make sense?</p>
+          <p><a href="https://discourse.keleshev.com/t/language-description-thoughts/53/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/language-description-thoughts/53/3</link>
+        <pubDate>Mon, 27 Jul 2020 12:17:46 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-53-3</guid>
+        <source url="https://discourse.keleshev.com/t/language-description-thoughts/53.rss">Language description thoughts</source>
+      </item>
+      <item>
+        <title>Language description thoughts</title>
+        <dc:creator><![CDATA[keleshev]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi <a class="mention" href="/u/nerdboy">@nerdboy</a>, and welcome!</p>
+<p>That’s a very interesting observation. I will have to add some explanation to the book. Sometimes this behavior is advantageous, like when JS introduced <code>let</code> they had to make sure that the old code like <code>var let = 10</code> still works. But for other cases, this should be avoided, like in the <code>var if = 10</code> example you made.</p>
+          <p><a href="https://discourse.keleshev.com/t/language-description-thoughts/53/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/language-description-thoughts/53/2</link>
+        <pubDate>Mon, 27 Jul 2020 10:44:30 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-53-2</guid>
+        <source url="https://discourse.keleshev.com/t/language-description-thoughts/53.rss">Language description thoughts</source>
+      </item>
+      <item>
+        <title>Language description thoughts</title>
+        <dc:creator><![CDATA[nerdboy]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi,</p>
+<p>I love the draft and have gone through it. The language itself is simple and basic - but there is one thing that you might consider adding that seems very relevant to your description of the language. You describe the language as:</p>
+<blockquote>
+<p>But the compiler’s source or input language is a subset (or a simpli-<br>
+fied version) of TypeScript.</p>
+</blockquote>
+<p>One thing that I think migh be important to some is the idea of reserved keywords (or in your language - there does not seem to be any). For example - in your language - I can do this:</p>
+<blockquote>
+<p>var if = 10;</p>
+</blockquote>
+<p>Which allows one to do this:</p>
+<blockquote>
+<p>if (if == 10)</p>
+</blockquote>
+<p>To some this might seem like a small thing - but I think by adding in a quick note about there not being any reserved keywords for variable names and the like - it would be helpful to others.</p>
+          <p><a href="https://discourse.keleshev.com/t/language-description-thoughts/53/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://discourse.keleshev.com/t/language-description-thoughts/53/1</link>
+        <pubDate>Sun, 26 Jul 2020 21:06:58 +0000</pubDate>
+        <guid isPermaLink="false">discourse.keleshev.com-post-53-1</guid>
+        <source url="https://discourse.keleshev.com/t/language-description-thoughts/53.rss">Language description thoughts</source>
+      </item>
+  </channel>
+</rss>

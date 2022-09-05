@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Godbolt looks like not support running assembly for now - Compiling to Assembly from Scratch</title>
+    <meta name="description" content="I create an issue: https://github.com/compiler-explorer/compiler-explorer/issues/2387. 
+Also, a link to generate C to armv7a code: https://godbolt.org/z/54n11P">
+    <meta name="generator" content="Discourse 2.6.0.beta1 - https://github.com/discourse/discourse version b9174c8e8ab7e0a5fdb782cd8625d26475ce777e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/32d34deafc2d620b3f4b218b560d5d5f544183dd_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/1X/32d34deafc2d620b3f4b218b560d5d5f544183dd_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="113.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://discourse.keleshev.com","potentialAction":{"@type":"SearchAction","target":"https://discourse.keleshev.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Compiling to Assembly from Scratch Search">
+
+      <link href="../../stylesheets/desktop_2858fe1a7e1c2fdbfeb3eae8f9a8f12e081caaf6.css%3F__ws=discourse.keleshev.com.css" media="all" rel="stylesheet" data-target="desktop" data-theme-id="2"/>
+      <link href="../../stylesheets/desktop_theme_2_223f7359fb9f6a7678616c181dc93a609ee33714.css%3F__ws=discourse.keleshev.com.css" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2"/>
+    
+    
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of &#39;Godbolt looks like not support running assembly for now&#39;" href="113.rss" />
+    <meta property="og:site_name" content="Compiling to Assembly from Scratch" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://discourse.keleshev.com/uploads/default/original/1X/32d34deafc2d620b3f4b218b560d5d5f544183dd.png" />
+<meta property="og:image" content="https://discourse.keleshev.com/uploads/default/original/1X/32d34deafc2d620b3f4b218b560d5d5f544183dd.png" />
+<meta property="og:url" content="https://discourse.keleshev.com/t/godbolt-looks-like-not-support-running-assembly-for-now/113" />
+<meta name="twitter:url" content="https://discourse.keleshev.com/t/godbolt-looks-like-not-support-running-assembly-for-now/113" />
+<meta property="og:title" content="Godbolt looks like not support running assembly for now" />
+<meta name="twitter:title" content="Godbolt looks like not support running assembly for now" />
+<meta property="og:description" content="I create an issue: https://github.com/compiler-explorer/compiler-explorer/issues/2387.  Also, a link to generate C to armv7a code: https://godbolt.org/z/54n11P" />
+<meta name="twitter:description" content="I create an issue: https://github.com/compiler-explorer/compiler-explorer/issues/2387.  Also, a link to generate C to armv7a code: https://godbolt.org/z/54n11P" />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="1 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="1 ❤" />
+<meta property="article:published_time" content="2021-01-13T03:40:08+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+      <a href="../../index.html">
+          <img src="../../uploads/default/original/1X/7ed43fb87ad00ed48afdea6909c7967841dd7158.jpeg" alt="Compiling to Assembly from Scratch" id="site-logo" style="max-width: 150px;">
+      </a>
+    </header>
+    <div id="main-outlet" class="wrap">
+        <div id="topic-title">
+    <h1>
+      <a href="113.html">Godbolt looks like not support running assembly for now</a>
+    </h1>
+
+
+  </div>
+
+  
+
+
+      <div itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Compiling to Assembly from Scratch'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://discourse.keleshev.com/uploads/default/original/1X/7ed43fb87ad00ed48afdea6909c7967841dd7158.jpeg'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://discourse.keleshev.com/u/gengjiawen'><span itemprop='name'>gengjiawen</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="113.html">
+
+
+          <span class="crawler-post-infos">
+              <meta itemprop='datePublished' content='2021-01-13T03:40:08Z'>
+              <time itemprop='dateModified' datetime='2021-01-13T09:34:00Z' class='post-time'>
+                January 13, 2021,  9:34am
+              </time>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="onebox whitelistedgeneric">
+  <header class="source">
+      <img src="https://godbolt.org/favicon.ico?v=1" class="site-icon" width="64" height="64">
+      <a href="https://godbolt.org/z/f18j7K" target="_blank" rel="nofollow noopener">godbolt.org</a>
+  </header>
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:125/128;"><img src="../../uploads/default/original/1X/dd9874f0b994bec48643e9c6c181a1d98c074fd4.png" class="thumbnail" width="125" height="128"></div>
+
+<h3><a href="https://godbolt.org/z/f18j7K" target="_blank" rel="nofollow noopener">Compiler Explorer - Assembly (x86-64 gcc (trunk))</a></h3>
+
+<p>.data
+  hello:
+    .string "Hello, assembly!"
+.text
+  .global main
+  main:
+    push {ip, lr}
+    ldr r0, =hello
+    bl printf
+    mov r0, #41
+    add r0, r0, #1  // Increment
+    pop {ip, lr}
+    bx lr</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>I create an issue: <a href="https://github.com/compiler-explorer/compiler-explorer/issues/2387" rel="nofollow noopener">https://github.com/compiler-explorer/compiler-explorer/issues/2387</a>.</p>
+<p>Also, a link to generate C to armv7a code: <a href="https://godbolt.org/z/54n11P" rel="nofollow noopener">https://godbolt.org/z/54n11P</a></p>
+        </div>
+
+        <meta itemprop='headline' content='Godbolt looks like not support running assembly for now'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+      <nav class='crawler-nav'>
+        <ul>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../index.html' itemprop="url">Home </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../categories.html' itemprop="url">Categories </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../guidelines.html' itemprop="url">FAQ/Guidelines </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../tos.html' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='../../privacy.html' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+        </ul>
+      </nav>
+      <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+    </footer>
+    
+    
+  </body>
+  
+</html>
